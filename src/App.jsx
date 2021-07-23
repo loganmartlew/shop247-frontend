@@ -9,6 +9,9 @@ const App = () => {
       <Router>
         <Route path='/' component={HomePage} exact />
         <Route path='/profile' component={ProfilePage} />
+        <Route path='/product/:productid' />
+        <Route path='/search' />
+        <Route path='/user/:userid' />
       </Router>
     </Layout>
   );
