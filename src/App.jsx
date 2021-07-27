@@ -8,10 +8,19 @@ const App = () => {
     <Layout>
       <Router>
         <Route path='/' component={HomePage} exact />
-        <Route path='/profile' component={ProfilePage} />
-        <Route path='/product/:productid' />
+
         <Route path='/search' />
+        <Route path='/products/:productid' />
+        <Route path='/categories' />
+        <Route path='/categories/:category' />
+
+        <Route path='/profile' component={ProfilePage} />
+        <Route path='/profile/orders' />
         <Route path='/user/:userid' />
+
+        <Route path='/cart' />
+        <Route path='/checkout' />
+        <Route path='/pay' />
       </Router>
     </Layout>
   );
