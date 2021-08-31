@@ -11,16 +11,19 @@ export const useCart = () => useContext(CartContext);
 
 // Context Provider component
 const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState();
 
   const { showError } = useError();
 
   // Load cart from local storage on component mount
   useEffect(() => {
     const storedCart = localStorage.getItem('cart');
+    console.log(storedCart);
 
-    if (!storedCart) return;
-    if (!Array.isArray(storedCart)) return;
+    if (!storedCart || !Array.isArray(storedCart)) {
+      setCart([]);
+      return;
+    }
 
     setCart(storedCart);
   }, []);

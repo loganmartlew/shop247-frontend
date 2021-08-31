@@ -10,6 +10,9 @@ const cartItemIsValid = item => {
   if (!item.quantity) return false;
   if (typeof item.quantity !== 'number') return false;
   if (item.quantity < 1) return false;
+
+  // Item is valid
+  return true;
 };
 
 export default cartItemIsValid;
