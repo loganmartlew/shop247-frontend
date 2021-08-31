@@ -1,5 +1,8 @@
 import { createContext } from 'react';
 import { useState, useEffect, useContext } from 'react';
+import cartItemIsDuplicate from '../util/cartItemIsDuplicate';
+import cartItemIsValid from '../util/cartItemIsValid';
+import { useError } from './ErrorContext';
 
 const CartContext = createContext({});
 
@@ -9,6 +12,8 @@ export const useCart = () => useContext(CartContext);
 // Context Provider component
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
+
+  const { showError } = useError();
 
   // Load cart from local storage on component mount
   useEffect(() => {
@@ -27,8 +32,14 @@ const CartProvider = ({ children }) => {
 
   const addItem = item => {
     // Validate item
+    if (!cartItemIsValid(item)) {
+      return showError('Invalid cart item');
+    }
 
     // Check for duplicate
+    if (cartItemIsDuplicate(cart, item)) {
+      return showError('Item already in cart');
+    }
 
     setCart(prevCart => [...prevCart, item]);
   };
@@ -41,6 +52,9 @@ const CartProvider = ({ children }) => {
 
   const updateItem = (newItem, index) => {
     // Validate item
+    if (!cartItemIsValid(newItem)) {
+      return showError('Invalid cart item');
+    }
 
     const newCart = cart.map((item, i) => {
       if (i === index) {
