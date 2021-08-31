@@ -1,10 +1,10 @@
-import ErrorModal from '../ErrorModal';
+import Notifications from '../Notifications';
 
 const Layout = ({ children }) => {
   return (
     <>
       <main>{children}</main>
-      <ErrorModal />
+      <Notifications />
     </>
   );
 };

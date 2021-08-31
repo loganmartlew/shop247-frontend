@@ -18,7 +18,6 @@ const CartProvider = ({ children }) => {
   // Load cart from local storage on component mount
   useEffect(() => {
     const storedCart = localStorage.getItem('cart');
-    console.log(storedCart);
 
     if (!storedCart || !Array.isArray(storedCart)) {
       setCart([]);
