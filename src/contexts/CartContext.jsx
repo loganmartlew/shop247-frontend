@@ -1,6 +1,5 @@
 import { createContext } from 'react';
 import { useState, useEffect, useContext } from 'react';
-import moveArrayItem from '../util/moveArrayItem';
 
 const CartContext = createContext({});
 
