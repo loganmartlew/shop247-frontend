@@ -35,6 +35,7 @@ export const Img = styled.img`
   border-style: solid;
   border-color: black;
   border-width: 2px;
+  width: 100%;
 `;
 
 export const Price = styled.h4`
