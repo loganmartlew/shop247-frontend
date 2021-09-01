@@ -4,13 +4,11 @@ import HomePage from './components/pages/HomePage';
 import ProfilePage from './components/pages/ProfilePage';
 import ErrorProvider from './contexts/ErrorContext';
 import GlobalStyles from './styles/globals';
-import SingleProductTile from './components/SingleProductTile';
 
 const App = () => {
   return (
     <>
       <GlobalStyles />
-      <SingleProductTile />
       <ErrorProvider>
         <Layout>
           <Router>
