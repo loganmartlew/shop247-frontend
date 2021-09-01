@@ -2,7 +2,7 @@ import { createContext } from 'react';
 import { useState, useEffect, useContext } from 'react';
 import cartItemIsDuplicate from '../util/cartItemIsDuplicate';
 import cartItemIsValid from '../util/cartItemIsValid';
-import { useError } from './ErrorContext';
+import { useNotification } from './NotificationContext';
 
 const CartContext = createContext({});
 
@@ -13,7 +13,7 @@ export const useCart = () => useContext(CartContext);
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState();
 
-  const { showError } = useError();
+  const { addError } = useNotification();
 
   // Load cart from local storage on component mount
   useEffect(() => {
@@ -35,12 +35,12 @@ const CartProvider = ({ children }) => {
   const addItem = item => {
     // Validate item
     if (!cartItemIsValid(item)) {
-      return showError('Invalid cart item');
+      return addError('Invalid cart item');
     }
 
     // Check for duplicate
     if (cartItemIsDuplicate(cart, item)) {
-      return showError('Item already in cart');
+      return addError('Item already in cart');
     }
 
     setCart(prevCart => [...prevCart, item]);
@@ -55,7 +55,7 @@ const CartProvider = ({ children }) => {
   const updateItem = (newItem, index) => {
     // Validate item
     if (!cartItemIsValid(newItem)) {
-      return showError('Invalid cart item');
+      return addError('Invalid cart item');
     }
 
     const newCart = cart.map((item, i) => {
