@@ -1,4 +1,3 @@
-import React from 'react';
 import SingleProductTile from '../../SingleProductTile';
 
 const ProfilePage = () => {
