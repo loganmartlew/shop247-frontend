@@ -14,7 +14,6 @@ import formatDisplayPrice from '../../../util/formatDisplayPrice';
 const SingleProductTile = ({ product }) => {
   return (
     <Tile>
-      <Img src={product.images[0].url} alt='tile-img' />
       <Title>{product.name}</Title>
       <Subtitle>Auckland</Subtitle>
       <Info>{product.description}</Info>
