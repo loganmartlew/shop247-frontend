@@ -23,7 +23,8 @@ const theme = {
     danger: baseColors.red,
     warn: baseColors.orange,
     success: baseColors.green,
-    accent: desaturate(0.2, baseColors.purple),
+    primary: desaturate(0.2, baseColors.purple),
+    accent: baseColors.blue,
 
     // App Colors
     rosewater: baseColors.rosewater,

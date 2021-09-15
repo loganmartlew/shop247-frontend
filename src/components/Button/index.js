@@ -11,7 +11,7 @@ const getColorProps = colors => {
     background-color: ${background};
     color: ${text};
 
-    &:hover, &:focus {
+    &:hover {
       border-color: ${hoverBackground};
       background-color: ${hoverBackground};
       color: ${hoverText};
@@ -39,7 +39,7 @@ const getColors = (color, theme) => {
     }
     case 'accent':
     default: {
-      const border = theme.colors.accent;
+      const border = theme.colors.primary;
       const background = transparent;
       const hoverBackground = border;
       const text = border;
@@ -80,4 +80,17 @@ export default styled.button`
   }}
 
   ${({ block }) => (block ? '' : 'width: max-content;')};
+
+  ${({ size }) => {
+    switch (size) {
+      case 'sm': {
+        return `
+          font-size: 0.95em;
+        `;
+      }
+      default: {
+        return '';
+      }
+    }
+  }}
 `;
