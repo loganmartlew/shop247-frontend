@@ -6,6 +6,7 @@ import SignInPage from './components/pages/SignInPage';
 import SignUpPage from './components/pages/SignUpPage';
 import ProfilePage from './components/pages/ProfilePage';
 import NotificationProvider from './contexts/NotificationContext';
+import AuthProvider from './contexts/AuthContext';
 import CartProvider from './contexts/CartContext';
 import GlobalStyles from './styles/globals';
 import theme from './styles/theme';
@@ -19,29 +20,31 @@ const App = () => {
       <ThemeProvider theme={theme}>
         <GlobalStyles />
         <NotificationProvider>
-          <CartProvider>
-            <Router>
-              <Layout>
-                <Route path='/' component={HomePage} exact />
+          <AuthProvider>
+            <CartProvider>
+              <Router>
+                <Layout>
+                  <Route path='/' component={HomePage} exact />
 
-                <Route path='/signup' component={SignUpPage} />
-                <Route path='/signin' component={SignInPage} />
+                  <Route path='/signup' component={SignUpPage} />
+                  <Route path='/signin' component={SignInPage} />
 
-                <Route path='/search' />
-                <Route path='/products/:productid' />
-                <Route path='/categories' />
-                <Route path='/categories/:category' />
+                  <Route path='/search' />
+                  <Route path='/products/:productid' />
+                  <Route path='/categories' />
+                  <Route path='/categories/:category' />
 
-                <Route path='/profile' component={ProfilePage} />
-                <Route path='/profile/orders' />
-                <Route path='/user/:userid' />
+                  <Route path='/profile' component={ProfilePage} />
+                  <Route path='/profile/orders' />
+                  <Route path='/user/:userid' />
 
-                <Route path='/cart' />
-                <Route path='/checkout' />
-                <Route path='/pay' />
-              </Layout>
-            </Router>
-          </CartProvider>
+                  <Route path='/cart' />
+                  <Route path='/checkout' />
+                  <Route path='/pay' />
+                </Layout>
+              </Router>
+            </CartProvider>
+          </AuthProvider>
         </NotificationProvider>
       </ThemeProvider>
     </>
