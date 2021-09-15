@@ -11,20 +11,22 @@ export const Tile = styled.div`
 `;
 
 export const Title = styled.h3`
-  padding-top: 20px;
-  padding-bottom: 10px;
-  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  text-align: left;
   font-family: inherit;
 `;
 
-export const Subtitle = styled.h4`
+export const Subtitle = styled.h6`
   padding-bottom: 10px;
-  text-align: center;
+  padding-left: 6px;
+  text-align: left;
   font-family: inherit;
 `;
 
 export const Info = styled.h5`
-  text-align: center;
+  text-align: left;
   font-family: inherit;
   padding-left: 20px;
   padding-right: 20px;
@@ -39,9 +41,10 @@ export const Img = styled.img`
 `;
 
 export const Price = styled.h4`
-  float: right;
+  float: left;
   font: inherit;
   font-weight: bolder;
-  padding-right: 20px;
-  padding-top: 20px;
+  padding-left: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 `;

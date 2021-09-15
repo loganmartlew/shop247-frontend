@@ -6,10 +6,10 @@ const SingleProductTile = ({ product }) => {
 
   return (
     <Tile>
-      <Title>{product.name}</Title>
-      <Subtitle>subtitle</Subtitle>
-      <Info>{product.description}</Info>
       <Img src={product.images[0].url} alt='tile-img' />
+      <Title>{product.name}</Title>
+      <Subtitle>Auckland</Subtitle>
+      <Info>{product.description}</Info>
       <Price>{formatDisplayPrice(product.price)}</Price>
     </Tile>
   );

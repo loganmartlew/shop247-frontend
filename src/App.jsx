@@ -3,6 +3,7 @@ import { ThemeProvider } from 'styled-components';
 import Layout from './components/layout';
 import HomePage from './components/pages/HomePage';
 import ProfilePage from './components/pages/ProfilePage';
+import CartPage from './components/pages/CartPage';
 import NotificationProvider from './contexts/NotificationContext';
 import CartProvider from './contexts/CartContext';
 import GlobalStyles from './styles/globals';
@@ -28,7 +29,7 @@ const App = () => {
                 <Route path='/profile/orders' />
                 <Route path='/user/:userid' />
 
-                <Route path='/cart' />
+                <Route path='/cart' component={CartPage} />
                 <Route path='/checkout' />
                 <Route path='/pay' />
               </Layout>

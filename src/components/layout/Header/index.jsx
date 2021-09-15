@@ -24,7 +24,7 @@ const Header = () => {
       <NavBar>
         <NavList>
           <NavItem>
-            <Link to='/'>
+            <Link to='/search'>
               <AiOutlineSearch />
             </Link>
           </NavItem>
