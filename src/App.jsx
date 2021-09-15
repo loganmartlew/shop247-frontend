@@ -35,6 +35,7 @@ const App = () => {
                   <Route path='/products/:productid' />
                   <Route path='/categories' />
                   <Route path='/categories/:category' />
+                  <PrivateRoute path='/list' />
 
                   <PrivateRoute path='/profile' component={ProfilePage} />
                   <PrivateRoute path='/profile/orders' />
