@@ -42,8 +42,15 @@ const AuthProvider = ({ children }) => {
 
   const signUp = async (name, email, password) => {
     handleAuthError('Error signing up', async () => {
+      // Add user in firebase
       const user = await fb.signUp(name, email, password);
       setUser(user ?? null);
+
+      // Add user in backend
+      const userObj = { uid: user.uid, name, email };
+      const res = await fetch(``);
+
+      if (!res.ok) throw new Error();
     });
   };
 
