@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import Layout from './components/layout';
+import PrivateRoute from './components/auth/PrivateRoute';
 import HomePage from './components/pages/HomePage';
 import SignInPage from './components/pages/SignInPage';
 import SignUpPage from './components/pages/SignUpPage';
@@ -35,13 +36,13 @@ const App = () => {
                   <Route path='/categories' />
                   <Route path='/categories/:category' />
 
-                  <Route path='/profile' component={ProfilePage} />
-                  <Route path='/profile/orders' />
+                  <PrivateRoute path='/profile' component={ProfilePage} />
+                  <PrivateRoute path='/profile/orders' />
                   <Route path='/user/:userid' />
 
                   <Route path='/cart' component={CartPage} />
-                  <Route path='/checkout' />
-                  <Route path='/pay' />
+                  <PrivateRoute path='/checkout' />
+                  <PrivateRoute path='/pay' />
                 </Layout>
               </Router>
             </CartProvider>

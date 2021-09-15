@@ -7,6 +7,7 @@ export const Form = styled.form`
   gap: 1em;
   width: max-content;
   padding: 2em;
+  margin-bottom: 10rem;
   background-color: ${({ theme }) => theme.colors.pewter};
   box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.4);
 `;
