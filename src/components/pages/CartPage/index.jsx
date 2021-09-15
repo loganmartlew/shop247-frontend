@@ -1,22 +1,27 @@
-import React from 'react';
 import { CartSection } from './CartPageStyles';
 import { List } from '../../products/ProductList/ProductListStyles';
 import SingleProductTile from '../../products/SingleProductTile';
+import { useCart } from '../../../contexts/CartContext';
 
 const CartPage = () => {
-  const isEmpty = true;
+  const { cart } = useCart();
 
   const EmptyCart = () => <h3>Your cart is currently empty!</h3>;
 
-  const FilledCart = ({ products }) => {
-    <>
-      <List>
-        {products &&
-          products.map(product => (
-            <SingleProductTile key={product._id} product={product} />
-          ))}
-      </List>
-    </>;
+  const FilledCart = ({ cart }) => {
+    return (
+      <>
+        <List>
+          {cart &&
+            cart.map(item => (
+              <SingleProductTile
+                key={item.product._id}
+                product={item.product}
+              />
+            ))}
+        </List>
+      </>
+    );
   };
 
   return (
@@ -24,7 +29,7 @@ const CartPage = () => {
       <CartSection>
         <h1>Your Cart</h1>
 
-        {isEmpty ? <EmptyCart /> : <FilledCart />}
+        {cart && cart.length > 0 ? <FilledCart cart={cart} /> : <EmptyCart />}
       </CartSection>
     </>
   );
