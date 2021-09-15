@@ -1,3 +1,4 @@
+import { AiFillDelete } from 'react-icons/ai';
 import formatDisplayPrice from '../../../../util/formatDisplayPrice';
 import {
   Table,
@@ -36,7 +37,7 @@ const CartTable = ({ cart, removeItem }) => {
             <ProductField>{item.product.sellerId}</ProductField>
             <ProductField>
               <DeleteBtn onClick={() => removeItem(item.product._id)}>
-                X
+                <AiFillDelete />
               </DeleteBtn>
             </ProductField>
           </Row>
