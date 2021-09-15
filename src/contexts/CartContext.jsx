@@ -13,7 +13,7 @@ export const useCart = () => useContext(CartContext);
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState();
 
-  const { addError } = useNotification();
+  const { addError, addSuccess } = useNotification();
 
   // Load cart from local storage on component mount
   useEffect(() => {
@@ -44,6 +44,7 @@ const CartProvider = ({ children }) => {
     }
 
     setCart(prevCart => [...prevCart, item]);
+    addSuccess('Item added to cart');
   };
 
   const removeItem = index => {
