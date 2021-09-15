@@ -5,6 +5,7 @@ import HomePage from './components/pages/HomePage';
 import SignInPage from './components/pages/SignInPage';
 import SignUpPage from './components/pages/SignUpPage';
 import ProfilePage from './components/pages/ProfilePage';
+import CartPage from './components/pages/CartPage';
 import NotificationProvider from './contexts/NotificationContext';
 import AuthProvider from './contexts/AuthContext';
 import CartProvider from './contexts/CartContext';
@@ -38,6 +39,7 @@ const App = () => {
                   <Route path='/profile/orders' />
                   <Route path='/user/:userid' />
 
+<<<<<<< HEAD
                   <Route path='/cart' />
                   <Route path='/checkout' />
                   <Route path='/pay' />
@@ -45,6 +47,14 @@ const App = () => {
               </Router>
             </CartProvider>
           </AuthProvider>
+=======
+                <Route path='/cart' component={CartPage} />
+                <Route path='/checkout' />
+                <Route path='/pay' />
+              </Layout>
+            </Router>
+          </CartProvider>
+>>>>>>> products
         </NotificationProvider>
       </ThemeProvider>
     </>
