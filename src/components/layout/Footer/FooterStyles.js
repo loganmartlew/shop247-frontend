@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavItem } from '../Header/HeaderStyles';
 
 export const FooterContainer = styled.div`
     background-color: ${({ theme }) => theme.colors.pewter};
@@ -13,29 +13,27 @@ export const Links = styled.div`
     padding-left: 25px;
 `;
 
-export const About = styled.li`
+export const About = styled(NavItem)`
     list-style: none;
     display: inline-block;
-`;
-
-export const Careers = styled.li`
-    list-style: none;
-    display: inline-block;
-    padding-left: 20px;
     padding-right: 20px;
 `;
 
-export const terms = styled.li`
+export const Careers = styled(NavItem)`
     list-style: none;
     display: inline-block;
-    padding-left: 20px;
     padding-right: 20px;
 `;
 
-export const Contactus = styled.li`
+export const Termscon = styled(NavItem)`
     list-style: none;
     display: inline-block;
-    padding-left: 20px;
+    padding-right: 20px;
+`;
+
+export const Contactus = styled(NavItem)`
+    list-style: none;
+    display: inline-block;
     padding-right: 20px;
 `;
 
@@ -66,5 +64,6 @@ export const InstagramLogo = styled.li`
 export const Copyright = styled.div`
     color: black;
 	text-align: left;
+    padding-top: 10px;
 	font-size: 90%;
 `;
