@@ -15,8 +15,8 @@ const App = () => {
         <GlobalStyles />
         <NotificationProvider>
           <CartProvider>
-            <Layout>
-              <Router>
+            <Router>
+              <Layout>
                 <Route path='/' component={HomePage} exact />
 
                 <Route path='/search' />
@@ -31,8 +31,8 @@ const App = () => {
                 <Route path='/cart' />
                 <Route path='/checkout' />
                 <Route path='/pay' />
-              </Router>
-            </Layout>
+              </Layout>
+            </Router>
           </CartProvider>
         </NotificationProvider>
       </ThemeProvider>

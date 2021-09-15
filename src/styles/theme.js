@@ -9,6 +9,7 @@ const baseColors = {
 const theme = {
   colors: {
     white: 'white',
+    black: 'black',
     danger: baseColors.red,
     warn: baseColors.orange,
     success: baseColors.green,

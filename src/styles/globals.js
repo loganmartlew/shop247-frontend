@@ -8,4 +8,13 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
   }
+
+  ul {
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 `;
