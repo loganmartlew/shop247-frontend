@@ -1,10 +1,18 @@
-import { Link } from 'react-router-dom';
+import Searchbar from '../../Searchbar';
+import ProductList from '../../products/ProductList';
+import { SearchSection, ProductsSection } from './HomePageStyles';
+import testProducts from '../../products/ProductList/testProducts';
 
 const HomePage = () => {
   return (
     <>
-      <h1>Hello World pushing test</h1>
-      <Link to='/profile'>Profile</Link>
+      <SearchSection>
+        <Searchbar />
+      </SearchSection>
+      <ProductsSection>
+        {/* Should render featured products on homepage */}
+        <ProductList products={testProducts} />
+      </ProductsSection>
     </>
   );
 };

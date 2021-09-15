@@ -1,18 +1,25 @@
+import { useRef } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { SearchbarContainer, TextInput, SubmitBtn } from './SearchbarStyles';
 
-const Searchbar = ({ onSearch }) => {
+const Searchbar = ({ placeholder, onSearch }) => {
+  const inputRef = useRef(null);
+
   const submit = e => {
     e.preventDefault();
 
     if (!onSearch) return;
     if (typeof onSearch !== 'function') return;
-    onSearch();
+    onSearch(inputRef.current.value);
   };
 
   return (
     <SearchbarContainer onSubmit={submit}>
-      <TextInput type='text' value='new pants please' />
+      <TextInput
+        type='text'
+        placeholder={placeholder ?? 'Search...'}
+        ref={inputRef}
+      />
       <SubmitBtn type='submit'>
         <BsSearch />
       </SubmitBtn>
