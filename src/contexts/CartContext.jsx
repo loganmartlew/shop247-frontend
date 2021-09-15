@@ -17,7 +17,7 @@ const CartProvider = ({ children }) => {
 
   // Load cart from local storage on component mount
   useEffect(() => {
-    const storedCart = localStorage.getItem('cart');
+    const storedCart = JSON.parse(localStorage.getItem('cart'));
 
     if (!storedCart || !Array.isArray(storedCart)) {
       setCart([]);

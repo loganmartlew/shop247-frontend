@@ -1,0 +1,48 @@
+import formatDisplayPrice from '../../../../util/formatDisplayPrice';
+import {
+  Table,
+  TableHeader,
+  Row,
+  Heading,
+  TableBody,
+  ProductField,
+  DeleteBtn,
+} from './CartTableStyles';
+
+const CartTable = ({ cart }) => {
+  return (
+    <Table>
+      <TableHeader>
+        <Row>
+          <Heading>Name</Heading>
+          <Heading>Product Price</Heading>
+          <Heading>Quantity</Heading>
+          <Heading>Item Price</Heading>
+          <Heading>Seller Name</Heading>
+          <Heading></Heading>
+        </Row>
+      </TableHeader>
+      <TableBody>
+        {cart.map(item => (
+          <Row key={item.product._id}>
+            <ProductField>{item.product.name}</ProductField>
+            <ProductField>
+              {formatDisplayPrice(item.product.price)}
+            </ProductField>
+            <ProductField>{item.quantity}</ProductField>
+            <ProductField>
+              {formatDisplayPrice(item.product.price * item.quantity)}
+            </ProductField>
+            <ProductField>{item.product.sellerId}</ProductField>
+            <ProductField>
+              <DeleteBtn>X</DeleteBtn>
+            </ProductField>
+          </Row>
+        ))}
+      </TableBody>
+      <tfoot></tfoot>
+    </Table>
+  );
+};
+
+export default CartTable;
