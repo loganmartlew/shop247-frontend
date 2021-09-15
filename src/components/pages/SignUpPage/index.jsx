@@ -7,8 +7,8 @@ const SignUpPage = () => {
   const { signUp } = useAuth();
   const history = useHistory();
 
-  const submit = (email, password) => {
-    signUp(email, password).then(() => {
+  const submit = (name, email, password) => {
+    signUp(name, email, password).then(() => {
       history.push('/');
     });
   };

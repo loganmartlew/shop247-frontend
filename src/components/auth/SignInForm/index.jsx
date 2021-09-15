@@ -19,7 +19,13 @@ const SignInForm = ({ signup, submitHandler }) => {
     setError,
   } = useForm();
 
-  const submit = ({ email, password, confirmPassword }) => {
+  const submit = ({
+    firstName,
+    lastName,
+    email,
+    password,
+    confirmPassword,
+  }) => {
     // Validate password confirmation
     if (signup && password !== confirmPassword) {
       return setError(
@@ -29,12 +35,50 @@ const SignInForm = ({ signup, submitHandler }) => {
       );
     }
 
+    if (signup) {
+      const displayName = `${firstName} ${lastName}`;
+      submitHandler(displayName, email, password);
+      return;
+    }
+
     submitHandler(email, password);
   };
 
   return (
     <Form onSubmit={handleSubmit(submit)}>
       <h2>{!signup ? 'Sign In' : 'Sign Up'}</h2>
+
+      {signup && (
+        <>
+          <FormGroup>
+            <FieldLabel htmlFor='confirmPassword'>First Name:</FieldLabel>
+            <TextInput
+              type='text'
+              id='firstName'
+              {...register('firstName', {
+                required: 'First name is required',
+              })}
+            />
+            {errors.lastName && (
+              <ErrorMessage>{errors.lastName.message}</ErrorMessage>
+            )}
+          </FormGroup>
+
+          <FormGroup>
+            <FieldLabel htmlFor='confirmPassword'>Last Name:</FieldLabel>
+            <TextInput
+              type='text'
+              id='lastName'
+              {...register('lastName', {
+                required: 'Last name is required',
+              })}
+            />
+            {errors.lastName && (
+              <ErrorMessage>{errors.lastName.message}</ErrorMessage>
+            )}
+          </FormGroup>
+        </>
+      )}
 
       <FormGroup>
         <FieldLabel htmlFor='email'>Email:</FieldLabel>

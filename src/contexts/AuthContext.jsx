@@ -40,9 +40,9 @@ const AuthProvider = ({ children }) => {
     });
   };
 
-  const signUp = async (email, password) => {
+  const signUp = async (name, email, password) => {
     handleAuthError('Error signing up', async () => {
-      const user = await fb.signUp(email, password);
+      const user = await fb.signUp(name, email, password);
       setUser(user ?? null);
     });
   };
