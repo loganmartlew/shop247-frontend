@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const SearchSection = styled.section`
-  margin: 1em ${({ theme }) => theme.padding.horizontal};
+  margin: 1em 0;
 
   & > * {
     margin: 0 auto;
@@ -10,5 +10,5 @@ export const SearchSection = styled.section`
 `;
 
 export const ProductsSection = styled.section`
-  padding: 1em ${({ theme }) => theme.padding.horizontal};
+  padding: 1em 0;
 `;
