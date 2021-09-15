@@ -80,4 +80,17 @@ export default styled.button`
   }}
 
   ${({ block }) => (block ? '' : 'width: max-content;')};
+
+  ${({ size }) => {
+    switch (size) {
+      case 'sm': {
+        return `
+          font-size: 0.95em;
+        `;
+      }
+      default: {
+        return '';
+      }
+    }
+  }}
 `;
