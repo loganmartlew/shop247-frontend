@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import { Name, Description, Price, ProductContainer } from './ProducctPageStyles'
 
 const PRODUCT = {
   _id: '54jknghe45t098',
@@ -25,7 +26,11 @@ const ProductPage = () => {
 
   const product = PRODUCT;
 
-  return <div></div>;
+  return <ProductContainer>
+    <Name>{product.name}</Name>
+    <Description>{product.description}</Description>
+    <Price>${product.price}</Price>
+  </ProductContainer>;
 };
 
 export default ProductPage;
