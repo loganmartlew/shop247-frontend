@@ -34,7 +34,7 @@ const SignInForm = ({ signup, submitHandler }) => {
 
   return (
     <Form onSubmit={handleSubmit(submit)}>
-      <h2>Sign In</h2>
+      <h2>{!signup ? 'Sign In' : 'Sign Up'}</h2>
 
       <FormGroup>
         <FieldLabel htmlFor='email'>Email:</FieldLabel>
@@ -76,7 +76,7 @@ const SignInForm = ({ signup, submitHandler }) => {
 
       <BottomFields>
         <Button type='submit' solid>
-          Sign In
+          {!signup ? 'Sign In' : 'Sign Up'}
         </Button>
         <AltLink>
           {!signup && <Link to='/signup'>Need an account? Sign up here.</Link>}

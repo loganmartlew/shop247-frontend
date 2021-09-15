@@ -2,6 +2,7 @@ import { createContext } from 'react';
 import { useState, useEffect, useContext } from 'react';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import * as fb from '../firebase';
+import { useNotification } from './NotificationContext';
 
 const AuthContext = createContext({});
 
@@ -11,6 +12,8 @@ export const useAuth = () => useContext(AuthContext);
 // Context Provider component
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+
+  const { addError } = useNotification();
 
   // Keep user state up to date with firebase's observer
   useEffect(() => {
@@ -22,17 +25,42 @@ const AuthProvider = ({ children }) => {
     });
   }, []);
 
-  const signIn = async (email, password) => {};
+  const handleAuthError = async (errMessge, fn) => {
+    try {
+      await fn();
+    } catch (_) {
+      addError(errMessge);
+    }
+  };
 
-  const signUp = async (email, password) => {};
+  const signIn = async (email, password) => {
+    handleAuthError('Error signing in', async () => {
+      const user = await fb.signIn(email, password);
+      setUser(user ?? null);
+    });
+  };
+
+  const signUp = async (email, password) => {
+    handleAuthError('Error signing up', async () => {
+      const user = await fb.signUp(email, password);
+      setUser(user ?? null);
+    });
+  };
 
   const signOut = async () => {
-    await fb.signOut();
+    handleAuthError('Error signing out', async () => {
+      await fb.signOut();
+      setUser(null);
+    });
+    setUser(null);
   };
 
   // Public properties/functions when context is used
   const value = {
     user,
+    signIn,
+    signUp,
+    signOut,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
