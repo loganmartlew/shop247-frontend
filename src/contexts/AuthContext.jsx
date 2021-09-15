@@ -1,3 +1,4 @@
+import { apiUrl } from '../config';
 import { createContext } from 'react';
 import { useState, useEffect, useContext } from 'react';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
@@ -48,7 +49,13 @@ const AuthProvider = ({ children }) => {
 
       // Add user in backend
       const userObj = { uid: user.uid, name, email };
-      const res = await fetch(``);
+      const res = await fetch(`${apiUrl}/users`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ user: userObj }),
+      });
 
       if (!res.ok) throw new Error();
     });
