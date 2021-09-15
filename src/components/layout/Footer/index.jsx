@@ -2,16 +2,20 @@ import {FooterContainer, Links, About, Logos, FacebookLogo, TwitterLogo, Instagr
 import {AiOutlineFacebook} from 'react-icons/ai';
 import {AiFillTwitterSquare} from 'react-icons/ai';
 import {AiOutlineInstagram} from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
         <FooterContainer >
-            <Links>
+            <Link to='/'>
+               <Links>
                 <About>About Us</About>
                 <Careers>Careers</Careers>
                 <terms>Terms & conditions</terms>
                 <Contactus>Contact Us</Contactus>
-            </Links>
+              </Links>
+            </Link>
+
             <Logos>
                 <FacebookLogo><AiOutlineFacebook /></FacebookLogo>
                 <TwitterLogo><AiFillTwitterSquare /></TwitterLogo>
