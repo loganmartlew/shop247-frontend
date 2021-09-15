@@ -1,5 +1,6 @@
 import Header from './Header';
 import Notifications from '../Notifications';
+import Footer from './Footer';
 
 const Layout = ({ children }) => {
   return (
@@ -7,6 +8,7 @@ const Layout = ({ children }) => {
       <Header />
       <main>{children}</main>
       <Notifications />
+      <Footer />
     </>
   );
 };
