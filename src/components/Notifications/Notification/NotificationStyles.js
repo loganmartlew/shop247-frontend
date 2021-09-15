@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { lighten } from 'polished';
 import { NotificationType } from '../../../contexts/NotificationContext';
 
 export const NotificationContainer = styled.div`
@@ -16,13 +17,13 @@ export const NotificationContainer = styled.div`
   background-color: ${({ theme, type }) => {
     switch (type) {
       case NotificationType.ERROR: {
-        return theme.colors.danger.hsl();
+        return theme.colors.danger;
       }
       case NotificationType.WARN: {
-        return theme.colors.warn.hsl();
+        return theme.colors.warn;
       }
       default: {
-        return theme.colors.success.hsl();
+        return theme.colors.success;
       }
     }
   }};
@@ -61,13 +62,13 @@ export const ProgressBar = styled.div`
   background-color: ${({ theme, type }) => {
     switch (type) {
       case NotificationType.ERROR: {
-        return theme.colors.danger.lighten(0.3).hsl();
+        return lighten(0.3, theme.colors.danger);
       }
       case NotificationType.WARN: {
-        return theme.colors.warn.lighten(0.3).hsl();
+        return lighten(0.3, theme.colors.warn);
       }
       default: {
-        return theme.colors.success.lighten(0.3).hsl();
+        return lighten(0.3, theme.colors.success);
       }
     }
   }};

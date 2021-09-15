@@ -1,50 +1,45 @@
 import styled from 'styled-components';
 
-export const Tile = styled.div`
-  border-style: solid;
-  border-color: gray;
-  border-width: 2px;
-  border-radius: 10px;
-  margin: 10px 10px 10px 10px;
-  display: inline-block;
-  width: 300px;
+export const Tile = styled.article`
+  --width: 300px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  padding: 1em;
+  width: var(--width);
+  background-color: ${({ theme }) => theme.colors.pewter};
+  box-shadow: 1px 1px 10px 0px rgba(0, 0, 0, 0.2);
 `;
 
-export const Title = styled.h3`
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  text-align: left;
-  font-family: inherit;
-`;
+export const Title = styled.h3``;
 
-export const Subtitle = styled.h6`
-  padding-bottom: 10px;
-  padding-left: 6px;
-  text-align: left;
-  font-family: inherit;
-`;
+export const Subtitle = styled.h4``;
 
-export const Info = styled.h5`
-  text-align: left;
-  font-family: inherit;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-bottom: 10px;
+export const Info = styled.p``;
+
+export const ImageWrapper = styled.div`
+  position: relative;
+  height: var(--width);
+  width: 100%;
+  margin-bottom: 0.5em;
+  overflow: hidden;
 `;
 
 export const Img = styled.img`
-  border-style: solid;
-  border-color: black;
-  border-width: 2px;
-  width: 100%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
 `;
 
-export const Price = styled.h4`
-  float: left;
-  font: inherit;
-  font-weight: bolder;
-  padding-left: 15px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+export const BottomRow = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+`;
+
+export const Price = styled.p`
+  font-size: 1.2em;
+  font-weight: bold;
 `;
