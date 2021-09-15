@@ -5,7 +5,7 @@ import CartTable from './CartTable';
 import { useCart } from '../../../contexts/CartContext';
 
 const CartPage = () => {
-  const { cart, removeItem } = useCart();
+  const { cart, cartPrice, removeItem } = useCart();
 
   return (
     <>
@@ -13,7 +13,11 @@ const CartPage = () => {
       <CartSection>
         {(!cart || !cart.length > 0) && <h3>Your cart is currently empty!</h3>}
         {cart && cart.length > 0 && (
-          <CartTable cart={cart} removeItem={removeItem} />
+          <CartTable
+            cart={cart}
+            cartPrice={cartPrice}
+            removeItem={removeItem}
+          />
         )}
       </CartSection>
       <Link to='/'>

@@ -2,6 +2,7 @@ import { createContext } from 'react';
 import { useState, useEffect, useContext } from 'react';
 import cartItemIsDuplicate from '../util/cartItemIsDuplicate';
 import cartItemIsValid from '../util/cartItemIsValid';
+import getCartPrice from '../util/getCartPrice';
 import { useNotification } from './NotificationContext';
 
 const CartContext = createContext({});
@@ -12,6 +13,7 @@ export const useCart = () => useContext(CartContext);
 // Context Provider component
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState();
+  const [cartPrice, setCartPrice] = useState(0);
 
   const { addError, addSuccess } = useNotification();
 
@@ -30,6 +32,14 @@ const CartProvider = ({ children }) => {
   // Save cart to local storage on cart changes
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart));
+  }, [cart]);
+
+  // Fetch cart price when cart is updated
+  useEffect(() => {
+    getCartPrice(cart).then(price => {
+      if (price == null) return setCartPrice(0);
+      return setCartPrice(price);
+    });
   }, [cart]);
 
   const addItem = item => {
@@ -73,6 +83,7 @@ const CartProvider = ({ children }) => {
   // Public properties/functions when context is used
   const value = {
     cart,
+    cartPrice,
     addItem,
     removeItem,
     updateItem,

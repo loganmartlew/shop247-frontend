@@ -10,7 +10,7 @@ import {
   DeleteBtn,
 } from './CartTableStyles';
 
-const CartTable = ({ cart, removeItem }) => {
+const CartTable = ({ cart, cartPrice, removeItem }) => {
   return (
     <Table>
       <TableHeader>
@@ -43,7 +43,12 @@ const CartTable = ({ cart, removeItem }) => {
           </Row>
         ))}
       </TableBody>
-      <tfoot></tfoot>
+      <tfoot>
+        <Row>
+          <td>Total: </td>
+          <td>{formatDisplayPrice(cartPrice)}</td>
+        </Row>
+      </tfoot>
     </Table>
   );
 };
