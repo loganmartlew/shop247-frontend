@@ -47,8 +47,8 @@ const CartProvider = ({ children }) => {
     addSuccess('Item added to cart');
   };
 
-  const removeItem = index => {
-    const newCart = cart.filter((_, i) => i !== index);
+  const removeItem = id => {
+    const newCart = cart.filter(item => item.product._id !== id);
 
     setCart(newCart);
   };

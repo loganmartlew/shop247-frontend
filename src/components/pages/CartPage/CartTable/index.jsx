@@ -9,7 +9,7 @@ import {
   DeleteBtn,
 } from './CartTableStyles';
 
-const CartTable = ({ cart }) => {
+const CartTable = ({ cart, removeItem }) => {
   return (
     <Table>
       <TableHeader>
@@ -35,7 +35,9 @@ const CartTable = ({ cart }) => {
             </ProductField>
             <ProductField>{item.product.sellerId}</ProductField>
             <ProductField>
-              <DeleteBtn>X</DeleteBtn>
+              <DeleteBtn onClick={() => removeItem(item.product._id)}>
+                X
+              </DeleteBtn>
             </ProductField>
           </Row>
         ))}
