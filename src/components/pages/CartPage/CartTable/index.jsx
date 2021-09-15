@@ -8,6 +8,7 @@ import {
   TableBody,
   ProductField,
   DeleteBtn,
+  TableFooter,
 } from './CartTableStyles';
 
 const CartTable = ({ cart, cartPrice, removeItem }) => {
@@ -43,12 +44,16 @@ const CartTable = ({ cart, cartPrice, removeItem }) => {
           </Row>
         ))}
       </TableBody>
-      <tfoot>
+      <TableFooter>
         <Row>
-          <td>Total: </td>
-          <td>{formatDisplayPrice(cartPrice)}</td>
+          <Heading>Total Price: </Heading>
+          <Heading>{formatDisplayPrice(cartPrice)}</Heading>
+          <Heading></Heading>
+          <Heading></Heading>
+          <Heading></Heading>
+          <Heading></Heading>
         </Row>
-      </tfoot>
+      </TableFooter>
     </Table>
   );
 };
