@@ -8,7 +8,6 @@ export const FooterContainer = styled.div`
 `;
 
 export const Links = styled.div`
-    color: black;
     text-align: center;
     padding-left: 25px;
 `;
