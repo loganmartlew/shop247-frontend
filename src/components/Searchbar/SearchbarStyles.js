@@ -1,10 +1,8 @@
 import styled from 'styled-components';
-import Color from 'color';
+import { lighten, darken } from 'polished';
 
-const bgColor = Color('hsl(0, 0%, 90%)');
-const border = `1px solid ${bgColor.darken(0.2).hsl()}`;
-
-const blue = Color('hsl(220, 100%, 50%)');
+const bgColor = 'hsl(0, 0%, 90%)';
+const border = `1px solid ${darken(0.2, bgColor)}`;
 
 export const SearchbarContainer = styled.form`
   display: flex;
@@ -21,7 +19,7 @@ export const TextInput = styled.input`
   font-size: 1em;
 
   &:focus {
-    background-color: ${bgColor.lighten(0.05).hsl()};
+    background-color: ${lighten(0.05, bgColor)};
     outline: none;
   }
 `;
@@ -42,8 +40,8 @@ export const SubmitBtn = styled.button`
     var(--time);
 
   &:hover {
-    background-color: ${blue};
-    border-color: ${bgColor.darken(0.8).hsl()};
+    background-color: ${({ theme }) => theme.colors.accent};
+    border-color: ${darken(0.8, bgColor)};
     color: white;
   }
 `;

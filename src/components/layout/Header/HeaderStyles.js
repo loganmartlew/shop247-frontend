@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { lighten } from 'polished';
 
 export const HeaderContainer = styled.header`
   display: flex;
@@ -31,6 +30,6 @@ export const NavItem = styled.li`
   transition: color 150ms;
 
   &:hover {
-    color: ${({ theme }) => lighten(0.3, theme.colors.black)};
+    color: ${({ theme }) => theme.colors.accent};
   }
 `;
