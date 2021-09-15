@@ -39,22 +39,13 @@ const App = () => {
                   <Route path='/profile/orders' />
                   <Route path='/user/:userid' />
 
-<<<<<<< HEAD
-                  <Route path='/cart' />
+                  <Route path='/cart' component={CartPage} />
                   <Route path='/checkout' />
                   <Route path='/pay' />
                 </Layout>
               </Router>
             </CartProvider>
           </AuthProvider>
-=======
-                <Route path='/cart' component={CartPage} />
-                <Route path='/checkout' />
-                <Route path='/pay' />
-              </Layout>
-            </Router>
-          </CartProvider>
->>>>>>> products
         </NotificationProvider>
       </ThemeProvider>
     </>
