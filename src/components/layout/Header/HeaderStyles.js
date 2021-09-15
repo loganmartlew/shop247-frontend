@@ -25,11 +25,20 @@ export const NavList = styled.ul`
 `;
 
 export const NavItem = styled.li`
-  font-size: 2rem;
   color: ${({ theme }) => theme.colors.black};
   transition: color 150ms;
 
   &:hover {
     color: ${({ theme }) => theme.colors.accent};
   }
+
+  & a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`;
+
+export const NavIcon = styled(NavItem)`
+  font-size: 2rem;
 `;

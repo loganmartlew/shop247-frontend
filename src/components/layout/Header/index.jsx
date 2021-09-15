@@ -4,16 +4,21 @@ import {
   AiOutlineShoppingCart,
   AiOutlineUser,
 } from 'react-icons/ai';
+import Button from '../../Button';
 import {
   HeaderContainer,
   LogoWrapper,
   Logo,
   NavBar,
   NavList,
+  NavIcon,
   NavItem,
 } from './HeaderStyles';
+import { useAuth } from '../../../contexts/AuthContext';
 
 const Header = () => {
+  const { user, signOut } = useAuth();
+
   return (
     <HeaderContainer>
       <LogoWrapper>
@@ -23,21 +28,42 @@ const Header = () => {
       </LogoWrapper>
       <NavBar>
         <NavList>
-          <NavItem>
+          <NavIcon>
             <Link to='/'>
               <AiOutlineSearch />
             </Link>
-          </NavItem>
-          <NavItem>
+          </NavIcon>
+          <NavIcon>
             <Link to='/cart'>
               <AiOutlineShoppingCart />
             </Link>
-          </NavItem>
-          <NavItem>
+          </NavIcon>
+          <NavIcon>
             <Link to='/profile'>
               <AiOutlineUser />
             </Link>
-          </NavItem>
+          </NavIcon>
+          {user && (
+            <>
+              <NavItem>
+                <Link to='/profile'>{user.displayName ?? user.email}</Link>
+              </NavItem>
+              <NavItem>
+                <Button size='sm' onClick={signOut}>
+                  Sign Out
+                </Button>
+              </NavItem>
+            </>
+          )}
+          {!user && (
+            <NavItem>
+              <Link to='/signin'>
+                <Button solid size='sm'>
+                  Sign In
+                </Button>
+              </Link>
+            </NavItem>
+          )}
         </NavList>
       </NavBar>
     </HeaderContainer>
