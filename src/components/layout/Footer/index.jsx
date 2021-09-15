@@ -1,4 +1,4 @@
-import {FooterContainer, Links, About, Logos, FacebookLogo, TwitterLogo, InstagramLogo, Copyright} from './FooterStyles';
+import {FooterContainer, Links, About, Logos, FacebookLogo, TwitterLogo, InstagramLogo, Copyright, Careers, terms, Contactus} from './FooterStyles';
 import {AiOutlineFacebook} from 'react-icons/ai';
 import {AiFillTwitterSquare} from 'react-icons/ai';
 import {AiOutlineInstagram} from 'react-icons/ai';
@@ -7,7 +7,10 @@ const Footer = () => {
     return (
         <FooterContainer >
             <Links>
-                <About>Link to About page</About>
+                <About>About Us</About>
+                <Careers>Careers</Careers>
+                <terms>Terms & conditions</terms>
+                <Contactus>Contact Us</Contactus>
             </Links>
             <Logos>
                 <FacebookLogo><AiOutlineFacebook /></FacebookLogo>
