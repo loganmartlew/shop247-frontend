@@ -82,6 +82,10 @@ const CartProvider = ({ children }) => {
     setCart(newCart);
   };
 
+  const clearCart = () => {
+    setCart([]);
+  };
+
   // Public properties/functions when context is used
   const value = {
     cart,
@@ -89,6 +93,7 @@ const CartProvider = ({ children }) => {
     addItem,
     removeItem,
     updateItem,
+    clearCart,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

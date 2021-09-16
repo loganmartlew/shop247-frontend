@@ -16,6 +16,8 @@ import ProfilePage from './components/pages/ProfilePage';
 import ProductPage from './components/pages/ProductPage';
 import CartPage from './components/pages/CartPage';
 import ListPage from './components/pages/ListPage';
+import PaymentSuccessPage from './components/pages/PaymentSuccessPage';
+import PaymentCancelPage from './components/pages/PaymentCancelPage';
 
 // Initialize Firebase
 import './firebase';
@@ -46,8 +48,11 @@ const App = () => {
                   <Route path='/user/:userid' />
 
                   <Route path='/cart' component={CartPage} />
-                  <PrivateRoute path='/checkout' />
-                  <PrivateRoute path='/pay' />
+                  <Route
+                    path='/paymentsuccess'
+                    component={PaymentSuccessPage}
+                  />
+                  <Route path='/paymentcancel' component={PaymentCancelPage} />
                 </Layout>
               </Router>
             </CartProvider>
