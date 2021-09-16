@@ -7,6 +7,5 @@ export const LayoutWrapper = styled.div`
 
   & main {
     flex-grow: 1;
-    padding-inline: ${({ theme }) => theme.padding.horizontal};
   }
 `;
