@@ -18,7 +18,7 @@ const PaymentCancelPage = () => {
 
   return (
     <div>
-      <h1>Thank you for your purchase!</h1>
+      <h1>Order Cancelled</h1>
       <Link to='/'>
         <Button solid>Continue Shopping</Button>
       </Link>
