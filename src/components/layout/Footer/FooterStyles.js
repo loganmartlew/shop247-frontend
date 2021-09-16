@@ -2,7 +2,11 @@ import styled from 'styled-components';
 import { NavItem } from '../Header/HeaderStyles';
 
 export const FooterContainer = styled.div`
+<<<<<<< HEAD
+    background-color: darkgrey;
+=======
     background-color: ${({ theme }) => theme.colors.pewter};
+>>>>>>> main
     padding: 20px;
 	font-size: 80%;
 `;

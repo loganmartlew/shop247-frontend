@@ -7,5 +7,5 @@ export const PageWrapper = styled.div`
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  background-image: url("/SignInBackground.png");
+  background-image: url('/SignInBackground.png');
 `;
