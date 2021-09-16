@@ -11,7 +11,7 @@ import {
   TableFooter,
 } from './CartTableStyles';
 
-const CartTable = ({ cart, cartPrice, removeItem }) => {
+const CartTable = ({ cart, cartPrice, removeItem, noDelete }) => {
   return (
     <Table>
       <TableHeader>
@@ -20,8 +20,7 @@ const CartTable = ({ cart, cartPrice, removeItem }) => {
           <Heading>Product Price</Heading>
           <Heading>Quantity</Heading>
           <Heading>Item Price</Heading>
-          <Heading>Seller Name</Heading>
-          <Heading></Heading>
+          {!noDelete && <Heading></Heading>}
         </Row>
       </TableHeader>
       <TableBody>
@@ -35,12 +34,13 @@ const CartTable = ({ cart, cartPrice, removeItem }) => {
             <ProductField>
               {formatDisplayPrice(item.product.price * item.quantity)}
             </ProductField>
-            <ProductField>{item.product.sellerId}</ProductField>
-            <ProductField>
-              <DeleteBtn onClick={() => removeItem(item.product._id)}>
-                <AiFillDelete />
-              </DeleteBtn>
-            </ProductField>
+            {!noDelete && (
+              <ProductField>
+                <DeleteBtn onClick={() => removeItem(item.product._id)}>
+                  <AiFillDelete />
+                </DeleteBtn>
+              </ProductField>
+            )}
           </Row>
         ))}
       </TableBody>
@@ -50,8 +50,7 @@ const CartTable = ({ cart, cartPrice, removeItem }) => {
           <Heading>{formatDisplayPrice(cartPrice)}</Heading>
           <Heading></Heading>
           <Heading></Heading>
-          <Heading></Heading>
-          <Heading></Heading>
+          {!noDelete && <Heading></Heading>}
         </Row>
       </TableFooter>
     </Table>

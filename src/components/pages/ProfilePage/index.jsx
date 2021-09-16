@@ -30,12 +30,12 @@ const ProfilePage = () => {
                   <strong>Email: </strong> {user.email}
                 </p>
                 <p>
-                  <a href='/'>
+                  <Link to='/'>
                     <BsFillGearFill /> Change Password
-                  </a>
+                  </Link>
                 </p>
                 <p>
-                  <Link to='/'>
+                  <Link to='/profile/orders'>
                     <FaCartArrowDown /> Purchase History
                   </Link>
                 </p>
