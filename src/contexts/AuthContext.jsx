@@ -13,6 +13,7 @@ export const useAuth = () => useContext(AuthContext);
 // Context Provider component
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const { addError } = useNotification();
 
@@ -20,9 +21,12 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     onAuthStateChanged(getAuth(), user => {
       if (user) {
-        return setUser(user);
+        setUser(user);
+      } else {
+        setUser(null);
       }
-      return setUser(null);
+
+      setLoading(false);
     });
   }, []);
 
@@ -77,7 +81,11 @@ const AuthProvider = ({ children }) => {
     signOut,
   };
 
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={value}>
+      {!loading && children}
+    </AuthContext.Provider>
+  );
 };
 
 export default AuthProvider;
