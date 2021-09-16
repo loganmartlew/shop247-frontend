@@ -7,9 +7,8 @@ import {
   FieldLabel,
   TextInput,
   ErrorMessage,
-  BottomFields,
-  AltLink,
-} from './SignInStyles';
+} from '../../Form';
+import { BottomFields, AltLink } from './SignInStyles';
 
 const SignInForm = ({ signup, submitHandler }) => {
   const {

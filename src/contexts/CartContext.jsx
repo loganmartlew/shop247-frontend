@@ -2,6 +2,7 @@ import { createContext } from 'react';
 import { useState, useEffect, useContext } from 'react';
 import cartItemIsDuplicate from '../util/cartItemIsDuplicate';
 import cartItemIsValid from '../util/cartItemIsValid';
+import getCartPrice from '../util/getCartPrice';
 import { useNotification } from './NotificationContext';
 
 const CartContext = createContext({});
@@ -12,12 +13,13 @@ export const useCart = () => useContext(CartContext);
 // Context Provider component
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState();
+  const [cartPrice, setCartPrice] = useState(0);
 
-  const { addError } = useNotification();
+  const { addError, addSuccess } = useNotification();
 
   // Load cart from local storage on component mount
   useEffect(() => {
-    const storedCart = localStorage.getItem('cart');
+    const storedCart = JSON.parse(localStorage.getItem('cart'));
 
     if (!storedCart || !Array.isArray(storedCart)) {
       setCart([]);
@@ -32,6 +34,14 @@ const CartProvider = ({ children }) => {
     localStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
 
+  // Fetch cart price when cart is updated
+  useEffect(() => {
+    getCartPrice(cart).then(price => {
+      if (price == null) return setCartPrice(0);
+      return setCartPrice(price);
+    });
+  }, [cart]);
+
   const addItem = item => {
     // Validate item
     if (!cartItemIsValid(item)) {
@@ -44,10 +54,11 @@ const CartProvider = ({ children }) => {
     }
 
     setCart(prevCart => [...prevCart, item]);
+    addSuccess('Item added to cart');
   };
 
-  const removeItem = index => {
-    const newCart = cart.filter((_, i) => i !== index);
+  const removeItem = id => {
+    const newCart = cart.filter(item => item.product._id !== id);
 
     setCart(newCart);
   };
@@ -72,6 +83,7 @@ const CartProvider = ({ children }) => {
   // Public properties/functions when context is used
   const value = {
     cart,
+    cartPrice,
     addItem,
     removeItem,
     updateItem,

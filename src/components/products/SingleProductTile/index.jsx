@@ -10,8 +10,11 @@ import {
   Price,
 } from './SPTStyles';
 import formatDisplayPrice from '../../../util/formatDisplayPrice';
+import { useCart } from '../../../contexts/CartContext';
 
 const SingleProductTile = ({ product }) => {
+  const { addItem } = useCart();
+
   return (
     <Tile>
       <Title>{product.name}</Title>
@@ -22,7 +25,9 @@ const SingleProductTile = ({ product }) => {
       </ImageWrapper>
       <BottomRow>
         <Price>{formatDisplayPrice(product.price)}</Price>
-        <Button solid>Add To Cart</Button>
+        <Button solid onClick={() => addItem({ quantity: 1, product })}>
+          Add To Cart
+        </Button>
       </BottomRow>
     </Tile>
   );
