@@ -10,14 +10,15 @@ import theme from './styles/theme';
 
 // Page Components
 import HomePage from './components/pages/HomePage';
-import SearchPage from './components/pages/SearchPage';
 import SignInPage from './components/pages/SignInPage';
 import SignUpPage from './components/pages/SignUpPage';
-import ProfilePage from './components/pages/ProfilePage';
-import OrdersPage from './components/pages/OrdersPage';
+import SearchPage from './components/pages/SearchPage';
 import ProductPage from './components/pages/ProductPage';
-import CartPage from './components/pages/CartPage';
 import ListPage from './components/pages/ListPage';
+import OrdersPage from './components/pages/OrdersPage';
+import ProfilePage from './components/pages/ProfilePage';
+import UserPage from './components/pages/UserPage';
+import CartPage from './components/pages/CartPage';
 import PaymentSuccessPage from './components/pages/PaymentSuccessPage';
 import PaymentCancelPage from './components/pages/PaymentCancelPage';
 
@@ -49,7 +50,7 @@ const App = () => {
                       component={OrdersPage}
                     />
                     <PrivateRoute path='/profile' component={ProfilePage} />
-                    <Route path='/user/:userid' />
+                    <Route path='/user/:userid' component={UserPage} />
 
                     <Route path='/cart' component={CartPage} />
                     <Route

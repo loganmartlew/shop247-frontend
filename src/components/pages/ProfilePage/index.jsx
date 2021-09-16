@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { BsFillGearFill } from 'react-icons/bs';
-import { FaCartArrowDown } from 'react-icons/fa';
+import { AiOutlineShoppingCart, AiOutlineFile } from 'react-icons/ai';
 import {
   AccHeader,
   AccID,
@@ -42,7 +42,14 @@ const ProfilePage = () => {
                 <p>
                   <FakeLink>
                     <Link to='/profile/orders'>
-                      <FaCartArrowDown /> Purchase History
+                      <AiOutlineShoppingCart /> Purchase History
+                    </Link>
+                  </FakeLink>
+                </p>
+                <p>
+                  <FakeLink>
+                    <Link to={`/user/${user.uid}`}>
+                      <AiOutlineFile /> Your Listings
                     </Link>
                   </FakeLink>
                 </p>
