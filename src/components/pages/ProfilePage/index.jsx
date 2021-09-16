@@ -1,25 +1,16 @@
+import { Link } from 'react-router-dom';
 import {
-  AccEmail,
   AccHeader,
   AccID,
-  AccountHeader,
-  BoughtItems,
   DescBox,
-  DivTest,
-  email,
-  h3_,
-  NavItem,
   PageWrapper,
   ProfileBox,
   Section1,
   Section2,
   Section3,
   Section4,
-  UserScore,
-  Watchlist,
 } from '../ProfilePage/ProfilePageStyles';
 import { BsFillBookmarkFill, BsStarFill, BsFillGearFill } from 'react-icons/bs';
-import { MdMail } from 'react-icons/md';
 import {
   FaCartArrowDown,
   FaShoppingBag,
@@ -32,9 +23,6 @@ import { useAuth } from '../../../contexts/AuthContext';
 
 const ProfilePage = () => {
   const { user } = useAuth();
-  const email = user.email;
-  const name = user.displayName;
-  //  const billAdd = user.Address; grab address from user account
 
   return (
     <>
@@ -45,23 +33,14 @@ const ProfilePage = () => {
               <AccHeader>My Account</AccHeader>
               <AccID>Account ID: xxxxx</AccID>
               <Section1>
-                {/* <AccEmail>Email:</AccEmail>
-              {email} */}
-
                 <p>
-                  <strong>User Name: </strong> {name} (xx <BsStarFill />)
+                  <strong>User Name: </strong> {user.name} (xx <BsStarFill />)
                 </p>
                 <p>
-                  <strong>Email: </strong> {email}
+                  <strong>Email: </strong> {user.email}
                 </p>
 
                 <p>-=Section 1=-</p>
-
-                {/* <Link to = '/profile'> 
-                <a><BsFillBookmarkFill /> Watchlist</a>
-                <BoughtItems><FaCartArrowDown /> Bought Items</BoughtItems>
-                <UserScore><BsStarFill /> User Score</UserScore>
-              </Link> */}
 
                 <p>
                   <a href='/'>
@@ -81,9 +60,9 @@ const ProfilePage = () => {
               <Section2>
                 <p>-=Section 2=-</p>
                 <p>
-                  <a href='/'>
+                  <Link to='/'>
                     <FaShoppingBag /> Items selling
-                  </a>
+                  </Link>
                 </p>
                 <p>
                   <a href='/'>
@@ -102,7 +81,6 @@ const ProfilePage = () => {
                 <p>
                   <FaMapMarkerAlt /> Billing Address:{' '}
                 </p>
-                {/* print address here using billAdd */}
                 <p>
                   <FaTruck /> Shipping Address
                 </p>

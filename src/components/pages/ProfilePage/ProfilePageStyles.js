@@ -7,7 +7,7 @@ export const PageWrapper = styled.div`
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  background-image: url("/ProfileBackground.png");
+  background-image: url('/ProfileBackground.png');
 `;
 
 export const ProfileBox = styled.div`
@@ -86,26 +86,3 @@ export const AccID = styled.h3`
   font-weight: bold;
   padding-top: 10px;
 `;
-
-
-// export const AccEmail = styled.h3`
-//   text-align: end;
-//   font-size: medium;
-//   font-weight: bold;
-//   padding-top: 10px;
-// `;
-
-// export const Watchlist = styled.li`
-//     list-style: none;
-//     display: list-item;
-// `;
-
-// export const BoughtItems = styled.li`
-//     list-style: none;
-//     display: list-item;
-// `;
-
-// export const UserScore = styled.li`
-//     list-style: none;
-//     display: list-item;
-// `;
