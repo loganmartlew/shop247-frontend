@@ -16,6 +16,7 @@ const CartPage = () => {
     e.preventDefault();
 
     if (!user) return addError('You are not logged in');
+    if (cart?.length < 1) return addError(`Your cart is empty`);
 
     authFetchApi(
       '/payments/create-checkout-session',
