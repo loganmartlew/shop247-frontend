@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import { BsFillGearFill } from 'react-icons/bs';
+import { FaCartArrowDown } from 'react-icons/fa';
 import {
   AccHeader,
   AccID,
@@ -6,19 +8,7 @@ import {
   PageWrapper,
   ProfileBox,
   Section1,
-  Section2,
-  Section3,
-  Section4,
 } from '../ProfilePage/ProfilePageStyles';
-import { BsFillBookmarkFill, BsFillGearFill } from 'react-icons/bs';
-import {
-  FaCartArrowDown,
-  FaShoppingBag,
-  FaDollarSign,
-  FaPhone,
-  FaMapMarkerAlt,
-  FaTruck,
-} from 'react-icons/fa';
 import { useAuth } from '../../../contexts/AuthContext';
 
 const ProfilePage = () => {
