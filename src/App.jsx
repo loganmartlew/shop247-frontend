@@ -2,16 +2,19 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import Layout from './components/layout';
 import PrivateRoute from './components/auth/PrivateRoute';
-import HomePage from './components/pages/HomePage';
-import SignInPage from './components/pages/SignInPage';
-import SignUpPage from './components/pages/SignUpPage';
-import ProfilePage from './components/pages/ProfilePage';
-import CartPage from './components/pages/CartPage';
 import NotificationProvider from './contexts/NotificationContext';
 import AuthProvider from './contexts/AuthContext';
 import CartProvider from './contexts/CartContext';
 import GlobalStyles from './styles/globals';
 import theme from './styles/theme';
+
+// Page Components
+import HomePage from './components/pages/HomePage';
+import SignInPage from './components/pages/SignInPage';
+import SignUpPage from './components/pages/SignUpPage';
+import ProfilePage from './components/pages/ProfilePage';
+import CartPage from './components/pages/CartPage';
+import ListPage from './components/pages/ListPage';
 
 // Initialize Firebase
 import './firebase';
@@ -35,7 +38,7 @@ const App = () => {
                   <Route path='/products/:productid' />
                   <Route path='/categories' />
                   <Route path='/categories/:category' />
-                  <PrivateRoute path='/list' />
+                  <PrivateRoute path='/list' component={ListPage} />
 
                   <PrivateRoute path='/profile' component={ProfilePage} />
                   <PrivateRoute path='/profile/orders' />
