@@ -43,35 +43,6 @@ export const Section1 = styled.section`
   border-color: black;
 `;
 
-export const Section2 = styled.section`
-  display: block;
-  text-align: left;
-  background-color: transparent;
-  padding: 3%;
-  border: 0px;
-  border-bottom: 1px;
-  border-style: solid;
-  border-color: black;
-`;
-
-export const Section3 = styled.section`
-  display: block;
-  background-color: transparent;
-  padding: 3%;
-  border: 0px;
-  border-bottom: 1px;
-  border-style: solid;
-  border-color: black;
-`;
-
-export const Section4 = styled.section`
-  display: block;
-  background-color: transparent;
-  padding-top: 3%;
-  padding-left: 3%;
-  padding-right: 3%;
-`;
-
 export const AccHeader = styled.h1`
   text-align: center;
   padding: 5px;
