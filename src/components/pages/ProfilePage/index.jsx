@@ -35,8 +35,8 @@ const ProfilePage = () => {
               </Link> */}
 
               <p><a href = '/'><BsFillBookmarkFill /> Watchlist</a></p>
-              <p><a href = '/'><FaCartArrowDown /> Bought Items</a></p>
-              <p><BsStarFill /> User Score</p>
+              <p><a href = '/'><FaCartArrowDown /> Purchase History</a></p>
+              <p><BsStarFill /> User Feedback</p>
 
               </Section1>
 
@@ -57,10 +57,14 @@ const ProfilePage = () => {
 
               <Section4>
               <p>-=Section 4=-</p>
-              <p><a href='/'><BsFillGearFill />Change Password</a></p>
-              <p><a href='/'><BsFillGearFill />Change Contact Details</a></p>
-              <p><a href='/'><BsFillGearFill />Change Billing/Shipping Address</a></p>
-              <p><a href='/'><BsFillGearFill />Change Payment Info</a></p>
+              
+              <p><a href='/'><BsFillGearFill /> Change Password</a></p>
+
+              <p><a href='/'><BsFillGearFill /> Change Contact Details</a></p>
+
+              <p><a href='/'><BsFillGearFill /> Change Billing/Shipping Address</a></p>
+              
+              <p><a href='/'><BsFillGearFill /> Change Payment Info</a></p>
               </Section4>
           </DescBox>
         </div>

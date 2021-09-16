@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const FooterContainer = styled.div`
     background-color: darkgrey;
-    padding: 50px;
+    padding: 20px;
 	font-size: 80%;
 `;
 
