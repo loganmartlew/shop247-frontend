@@ -3,6 +3,7 @@ import { useState, useEffect, useContext } from 'react';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import * as fb from '../firebase';
 import { useNotification } from './NotificationContext';
+import { fetchApi } from '../util/fetchApi';
 
 const AuthContext = createContext({});
 
@@ -42,8 +43,21 @@ const AuthProvider = ({ children }) => {
 
   const signUp = async (name, email, password) => {
     handleAuthError('Error signing up', async () => {
+      // Add user in firebase
       const user = await fb.signUp(name, email, password);
       setUser(user ?? null);
+
+      // Add user in backend
+      const userObj = { uid: user.uid, name, email };
+      const res = await fetchApi(`/users`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ user: userObj }),
+      });
+
+      if (!res.ok) throw new Error();
     });
   };
 

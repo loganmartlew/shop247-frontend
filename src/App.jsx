@@ -2,16 +2,23 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import Layout from './components/layout';
 import PrivateRoute from './components/auth/PrivateRoute';
-import HomePage from './components/pages/HomePage';
-import SignInPage from './components/pages/SignInPage';
-import SignUpPage from './components/pages/SignUpPage';
-import ProfilePage from './components/pages/ProfilePage';
-import CartPage from './components/pages/CartPage';
 import NotificationProvider from './contexts/NotificationContext';
 import AuthProvider from './contexts/AuthContext';
 import CartProvider from './contexts/CartContext';
 import GlobalStyles from './styles/globals';
 import theme from './styles/theme';
+
+// Page Components
+import HomePage from './components/pages/HomePage';
+import SearchPage from './components/pages/SearchPage';
+import SignInPage from './components/pages/SignInPage';
+import SignUpPage from './components/pages/SignUpPage';
+import ProfilePage from './components/pages/ProfilePage';
+import ProductPage from './components/pages/ProductPage';
+import CartPage from './components/pages/CartPage';
+import ListPage from './components/pages/ListPage';
+import PaymentSuccessPage from './components/pages/PaymentSuccessPage';
+import PaymentCancelPage from './components/pages/PaymentCancelPage';
 
 // Initialize Firebase
 import './firebase';
@@ -31,18 +38,20 @@ const App = () => {
                   <Route path='/signup' component={SignUpPage} />
                   <Route path='/signin' component={SignInPage} />
 
-                  <Route path='/search' />
-                  <Route path='/products/:productid' />
-                  <Route path='/categories' />
-                  <Route path='/categories/:category' />
+                  <Route path='/search' component={SearchPage} />
+                  <Route path='/product/:productid' component={ProductPage} />
+                  <PrivateRoute path='/list' component={ListPage} />
 
                   <PrivateRoute path='/profile' component={ProfilePage} />
                   <PrivateRoute path='/profile/orders' />
                   <Route path='/user/:userid' />
 
                   <Route path='/cart' component={CartPage} />
-                  <PrivateRoute path='/checkout' />
-                  <PrivateRoute path='/pay' />
+                  <Route
+                    path='/paymentsuccess'
+                    component={PaymentSuccessPage}
+                  />
+                  <Route path='/paymentcancel' component={PaymentCancelPage} />
                 </Layout>
               </Router>
             </CartProvider>

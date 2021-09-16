@@ -36,6 +36,8 @@ const CartProvider = ({ children }) => {
 
   // Fetch cart price when cart is updated
   useEffect(() => {
+    if (!cart || cart.length < 1) return;
+
     getCartPrice(cart).then(price => {
       if (price == null) return setCartPrice(0);
       return setCartPrice(price);
@@ -80,6 +82,10 @@ const CartProvider = ({ children }) => {
     setCart(newCart);
   };
 
+  const clearCart = () => {
+    setCart([]);
+  };
+
   // Public properties/functions when context is used
   const value = {
     cart,
@@ -87,6 +93,7 @@ const CartProvider = ({ children }) => {
     addItem,
     removeItem,
     updateItem,
+    clearCart,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

@@ -1,9 +1,14 @@
+import useSWR from 'swr';
 import Searchbar from '../../Searchbar';
 import ProductList from '../../products/ProductList';
 import { SearchSection, ProductsSection } from './HomePageStyles';
-import testProducts from '../../products/ProductList/testProducts';
+import { fetchApi } from '../../../util/fetchApi';
+
+const fetcher = (...args) => fetchApi(...args).then(res => res.json());
 
 const HomePage = () => {
+  const { data } = useSWR(`/products/featured`, fetcher);
+
   return (
     <>
       <SearchSection>
@@ -11,7 +16,7 @@ const HomePage = () => {
       </SearchSection>
       <ProductsSection>
         {/* Should render featured products on homepage */}
-        <ProductList products={testProducts} />
+        {data?.products && <ProductList products={data.products} />}
       </ProductsSection>
     </>
   );

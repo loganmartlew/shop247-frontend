@@ -1,16 +1,17 @@
 import { useRef } from 'react';
+import { useHistory } from 'react-router';
 import { BsSearch } from 'react-icons/bs';
 import { SearchbarContainer, TextInput, SubmitBtn } from './SearchbarStyles';
 
-const Searchbar = ({ placeholder, onSearch }) => {
+const Searchbar = ({ placeholder }) => {
   const inputRef = useRef(null);
+
+  const history = useHistory();
 
   const submit = e => {
     e.preventDefault();
 
-    if (!onSearch) return;
-    if (typeof onSearch !== 'function') return;
-    onSearch(inputRef.current.value);
+    history.push(`/search?s=${inputRef.current.value}`);
   };
 
   return (

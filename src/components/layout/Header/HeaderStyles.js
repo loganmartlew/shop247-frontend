@@ -5,6 +5,11 @@ export const HeaderContainer = styled.header`
   justify-content: space-between;
   height: 12vh;
   padding: 0.7em clamp(1em, 10%, 10em);
+  background-color: ${({ theme }) => theme.colors.pewter};
+  border-color: black;
+  border: 0px;
+  border-bottom: 1px;
+  border-style: solid;
 `;
 
 export const LogoWrapper = styled.div`
@@ -15,7 +20,8 @@ export const Logo = styled.img`
   height: 100%;
 `;
 
-export const NavBar = styled.nav``;
+export const NavBar = styled.nav`
+`;
 
 export const NavList = styled.ul`
   display: flex;
