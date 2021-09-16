@@ -3,6 +3,7 @@ import {
   AiOutlineSearch,
   AiOutlineShoppingCart,
   AiOutlineUser,
+  AiOutlinePlus,
 } from 'react-icons/ai';
 import Button from '../../Button';
 import {
@@ -36,6 +37,11 @@ const Header = () => {
           <NavIcon>
             <Link to='/cart'>
               <AiOutlineShoppingCart />
+            </Link>
+          </NavIcon>
+          <NavIcon>
+            <Link to='/list'>
+              <AiOutlinePlus />
             </Link>
           </NavIcon>
           <NavIcon>
