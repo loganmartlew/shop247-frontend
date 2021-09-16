@@ -4,14 +4,18 @@ import { PageWrapper, CartSection, BottomButtons } from './CartPageStyles';
 import CartTable from './CartTable';
 import { useCart } from '../../../contexts/CartContext';
 import { useAuth } from '../../../contexts/AuthContext';
+import { useNotification } from '../../../contexts/NotificationContext';
 import { authFetchApi } from '../../../util/fetchApi';
 
 const CartPage = () => {
   const { cart, cartPrice, removeItem } = useCart();
   const { user } = useAuth();
+  const { addError } = useNotification();
 
   const checkout = e => {
     e.preventDefault();
+
+    if (!user) return addError('You are not logged in');
 
     authFetchApi(
       '/payments/create-checkout-session',
