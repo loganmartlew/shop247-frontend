@@ -48,8 +48,7 @@ const ProfilePage = () => {
 
               <Section3>
               <p>-=Section 3=-</p>
-              <p><a href='/'><MdMail /> Account Email</a></p>
-              <p><a href='/'><FaPhone /> Contact Details</a></p>
+              <p><a href='/'><FaPhone /> Contact Details: xxxxxxxxx</a></p>
               <p><FaMapMarkerAlt /> Billing Address: </p>
               {/* print address here using billAdd */}
               <p><FaTruck /> Shipping Address</p>
