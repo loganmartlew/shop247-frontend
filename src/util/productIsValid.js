@@ -9,11 +9,6 @@
 const productIsValid = product => {
   if (!product) return false;
 
-  // Validate productId
-  if (!product._id) return false;
-  if (typeof product._id !== 'string') return false;
-  if (product._id.length < 1) return false;
-
   // Validate name
   if (!product.name) return false;
   if (typeof product.name !== 'string') return false;

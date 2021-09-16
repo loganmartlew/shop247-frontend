@@ -1,4 +1,4 @@
-import { apiUrl } from '../config';
+import { fetchApi } from './fetchApi';
 
 const getCartPrice = async cart => {
   const options = {
@@ -9,7 +9,7 @@ const getCartPrice = async cart => {
     body: JSON.stringify({ cart }),
   };
 
-  const res = await fetch(`${apiUrl}/cart/checkprice`, options);
+  const res = await fetchApi(`/cart/checkprice`, options);
 
   if (!res.ok) return null;
 

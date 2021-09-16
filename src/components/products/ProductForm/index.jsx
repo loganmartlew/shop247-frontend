@@ -9,10 +9,13 @@ import {
   LargeTextInput,
   ErrorMessage,
 } from '../../Form';
+import submitNewProduct from '../../../util/submitNewProduct';
 import { useAuth } from '../../../contexts/AuthContext';
+import { useNotification } from '../../../contexts/NotificationContext';
 
 const ProductForm = () => {
   const { user } = useAuth();
+  const { addError, addSuccess } = useNotification();
 
   const {
     register,
@@ -33,14 +36,20 @@ const ProductForm = () => {
     imageRef.current.value = '';
   };
 
-  const submit = ({ name, description, price: priceString }) => {
+  const submit = async ({ name, description, price: priceString }) => {
     const price = parseInt(parseFloat(priceString) * 100);
 
     if (images.length < 1) return;
 
     const data = { name, description, price, images, sellerId: user.uid };
 
-    console.log(data);
+    try {
+      console.log(process.env.REACT_APP_API_KEY);
+      await submitNewProduct(data, user);
+      addSuccess('Product listed!');
+    } catch (_) {
+      addError('Product is invalid');
+    }
   };
 
   return (
