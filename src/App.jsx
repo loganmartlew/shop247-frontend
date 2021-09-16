@@ -46,8 +46,8 @@ const App = () => {
                   <Route path='/user/:userid' />
 
                   <Route path='/cart' component={CartPage} />
-                  <PrivateRoute path='/checkout' />
-                  <PrivateRoute path='/pay' />
+                  {/* <PrivateRoute path='/checkout' />
+                  <PrivateRoute path='/pay' /> */}
                 </Layout>
               </Router>
             </CartProvider>

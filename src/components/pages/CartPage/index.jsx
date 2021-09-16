@@ -3,9 +3,27 @@ import Button from '../../Button';
 import { PageWrapper, CartSection, BottomButtons } from './CartPageStyles';
 import CartTable from './CartTable';
 import { useCart } from '../../../contexts/CartContext';
+import { useAuth } from '../../../contexts/AuthContext';
+import { authFetchApi } from '../../../util/fetchApi';
 
 const CartPage = () => {
   const { cart, cartPrice, removeItem } = useCart();
+  const { user } = useAuth();
+
+  const checkout = e => {
+    e.preventDefault();
+
+    authFetchApi(
+      '/payments/create-checkout-session',
+      {
+        method: 'POST',
+        body: JSON.stringify({ cart }),
+      },
+      user
+    )
+      .then(res => res.json())
+      .then(data => (window.location.href = data.url));
+  };
 
   return (
     <PageWrapper>
@@ -21,11 +39,9 @@ const CartPage = () => {
         )}
       </CartSection>
       <BottomButtons>
-        <Link to='/checkout'>
-          <Button solid size='sm'>
-            Checkout
-          </Button>
-        </Link>
+        <Button solid size='sm' onClick={checkout}>
+          Checkout
+        </Button>
         <Link to='/'>
           <Button size='sm'>Continue Shopping</Button>
         </Link>
