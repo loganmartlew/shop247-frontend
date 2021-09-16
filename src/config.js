@@ -1,1 +1,1 @@
-export const apiUrl = 'https://shop247-backend.herokuapp.com/';
+export const apiUrl = 'https://shop247-backend.herokuapp.com';

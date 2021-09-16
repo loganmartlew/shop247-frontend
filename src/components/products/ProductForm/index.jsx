@@ -47,7 +47,6 @@ const ProductForm = () => {
     const data = { name, description, price, images, sellerId: user.uid };
 
     try {
-      console.log(process.env.REACT_APP_API_KEY);
       await submitNewProduct(data, user);
       addSuccess('Product listed!');
       history.push('/');

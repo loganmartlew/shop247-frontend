@@ -1,36 +1,36 @@
 import { useParams } from 'react-router-dom';
-import { Name, Description, Price, ProductContainer } from './ProducctPageStyles'
+import useSWR from 'swr';
+import { fetchApi } from '../../../util/fetchApi';
+import formatDisplayPrice from '../../../util/formatDisplayPrice';
+import {
+  Name,
+  Description,
+  Price,
+  ProductContainer,
+} from './ProducctPageStyles';
 
-const PRODUCT = {
-  _id: '54jknghe45t098',
-  name: 't-shirt',
-  description: 'a very nice shirt',
-  price: 1000,
-  images: [
-    {
-      url: 'image1',
-    },
-    {
-      url: 'image2',
-    },
-    {
-      url: 'image3',
-    },
-  ],
-  sellerId: 'es4rtgiu4a3we',
-};
+const fetcher = (...args) => fetchApi(...args).then(res => res.json());
 
 const ProductPage = () => {
   const { productid } = useParams();
-  console.log(productid);
 
-  const product = PRODUCT;
+  const { data } = useSWR(`/products/${productid}`, fetcher);
 
-  return <ProductContainer>
-    <Name>{product.name}</Name>
-    <Description>{product.description}</Description>
-    <Price>${product.price}</Price>
-  </ProductContainer>;
+  const ProductCard = ({ product }) => (
+    <ProductContainer>
+      <Name>{product.name}</Name>
+      <Description>{product.description}</Description>
+      <Price>{formatDisplayPrice(product.price)}</Price>
+    </ProductContainer>
+  );
+
+  return (
+    <>
+      {data && data.product && <ProductCard product={data.product} />}
+      {data?.message && <h2>Product Not Found</h2>}
+      {!data && <h2>Loading...</h2>}
+    </>
+  );
 };
 
 export default ProductPage;

@@ -12,6 +12,12 @@ export const Tile = styled.article`
   box-shadow: 1px 1px 10px 0px rgba(0, 0, 0, 0.2);
 `;
 
+export const MainContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+`;
+
 export const Title = styled.h3``;
 
 export const Subtitle = styled.h4``;
