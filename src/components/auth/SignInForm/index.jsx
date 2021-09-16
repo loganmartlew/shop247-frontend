@@ -50,7 +50,7 @@ const SignInForm = ({ signup, submitHandler }) => {
       {signup && (
         <>
           <FormGroup>
-            <FieldLabel htmlFor='confirmPassword'>First Name:</FieldLabel>
+            <FieldLabel htmlFor='firstName'>First Name:</FieldLabel>
             <TextInput
               type='text'
               id='firstName'
@@ -64,7 +64,7 @@ const SignInForm = ({ signup, submitHandler }) => {
           </FormGroup>
 
           <FormGroup>
-            <FieldLabel htmlFor='confirmPassword'>Last Name:</FieldLabel>
+            <FieldLabel htmlFor='lastName'>Last Name:</FieldLabel>
             <TextInput
               type='text'
               id='lastName'
@@ -94,7 +94,13 @@ const SignInForm = ({ signup, submitHandler }) => {
         <TextInput
           type='password'
           id='password'
-          {...register('password', { required: 'Password is required' })}
+          {...register('password', {
+            required: 'Password is required',
+            minLength: {
+              value: 6,
+              message: 'Passwords must be a minimumof 6 characters',
+            },
+          })}
         />
         {errors.password && (
           <ErrorMessage>{errors.password.message}</ErrorMessage>
