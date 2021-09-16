@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import { useHistory } from 'react-router';
 import { useForm } from 'react-hook-form';
 import Button from '../../Button';
 import {
@@ -16,6 +17,8 @@ import { useNotification } from '../../../contexts/NotificationContext';
 const ProductForm = () => {
   const { user } = useAuth();
   const { addError, addSuccess } = useNotification();
+
+  const history = useHistory();
 
   const {
     register,
@@ -47,6 +50,7 @@ const ProductForm = () => {
       console.log(process.env.REACT_APP_API_KEY);
       await submitNewProduct(data, user);
       addSuccess('Product listed!');
+      history.push('/');
     } catch (_) {
       addError('Product is invalid');
     }
