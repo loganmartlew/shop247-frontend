@@ -8,11 +8,16 @@ import {
   PageWrapper,
   ProfileBox,
   Section1,
+  FakeLink,
 } from '../ProfilePage/ProfilePageStyles';
 import { useAuth } from '../../../contexts/AuthContext';
 
 const ProfilePage = () => {
-  const { user } = useAuth();
+  const { user, resetPassword } = useAuth();
+
+  const resetClick = () => {
+    resetPassword(user.email);
+  };
 
   return (
     <>
@@ -30,14 +35,16 @@ const ProfilePage = () => {
                   <strong>Email: </strong> {user.email}
                 </p>
                 <p>
-                  <Link to='/'>
+                  <FakeLink onClick={resetClick}>
                     <BsFillGearFill /> Change Password
-                  </Link>
+                  </FakeLink>
                 </p>
                 <p>
-                  <Link to='/profile/orders'>
-                    <FaCartArrowDown /> Purchase History
-                  </Link>
+                  <FakeLink>
+                    <Link to='/profile/orders'>
+                      <FaCartArrowDown /> Purchase History
+                    </Link>
+                  </FakeLink>
                 </p>
               </Section1>
             </DescBox>

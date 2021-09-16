@@ -57,3 +57,12 @@ export const AccID = styled.h3`
   font-weight: bold;
   padding-top: 10px;
 `;
+
+export const FakeLink = styled.span`
+  transition: color 100ms;
+  cursor: pointer;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.accent};
+  }
+`;

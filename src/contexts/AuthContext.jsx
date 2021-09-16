@@ -15,7 +15,7 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const { addError } = useNotification();
+  const { addError, addWarn } = useNotification();
 
   // Keep user state up to date with firebase's observer
   useEffect(() => {
@@ -73,12 +73,20 @@ const AuthProvider = ({ children }) => {
     setUser(null);
   };
 
+  const resetPassword = async email => {
+    handleAuthError('Error sending password reset email', async () => {
+      await fb.resetPassword(email);
+      addWarn('Password reset link sent to your email');
+    });
+  };
+
   // Public properties/functions when context is used
   const value = {
     user,
     signIn,
     signUp,
     signOut,
+    resetPassword,
   };
 
   return (
