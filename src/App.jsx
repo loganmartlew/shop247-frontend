@@ -10,6 +10,7 @@ import theme from './styles/theme';
 
 // Page Components
 import HomePage from './components/pages/HomePage';
+import SearchPage from './components/pages/SearchPage';
 import SignInPage from './components/pages/SignInPage';
 import SignUpPage from './components/pages/SignUpPage';
 import ProfilePage from './components/pages/ProfilePage';
@@ -37,10 +38,8 @@ const App = () => {
                   <Route path='/signup' component={SignUpPage} />
                   <Route path='/signin' component={SignInPage} />
 
-                  <Route path='/search' />
+                  <Route path='/search' component={SearchPage} />
                   <Route path='/product/:productid' component={ProductPage} />
-                  <Route path='/categories' />
-                  <Route path='/categories/:category' />
                   <PrivateRoute path='/list' component={ListPage} />
 
                   <PrivateRoute path='/profile' component={ProfilePage} />

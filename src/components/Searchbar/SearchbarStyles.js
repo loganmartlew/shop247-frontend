@@ -4,6 +4,15 @@ import { lighten, darken } from 'polished';
 const bgColor = 'hsl(0, 0%, 90%)';
 const border = `1px solid ${darken(0.2, bgColor)}`;
 
+export const SearchSection = styled.section`
+  margin: 1em 0;
+
+  & > * {
+    margin: 0 auto;
+    max-width: 600px;
+  }
+`;
+
 export const SearchbarContainer = styled.form`
   display: flex;
   width: 100%;
