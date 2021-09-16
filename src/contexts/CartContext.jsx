@@ -36,6 +36,8 @@ const CartProvider = ({ children }) => {
 
   // Fetch cart price when cart is updated
   useEffect(() => {
+    if (!cart || cart.length < 1) return;
+
     getCartPrice(cart).then(price => {
       if (price == null) return setCartPrice(0);
       return setCartPrice(price);
