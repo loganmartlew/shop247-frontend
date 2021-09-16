@@ -8,7 +8,6 @@ const fetcher = (...args) => fetchApi(...args).then(res => res.json());
 const OrdersPage = () => {
   const { user } = useAuth();
   const { data } = useSWR([`/orders/user/${user.uid}`, user], fetcher);
-  console.log(data);
 
   return (
     <div>
