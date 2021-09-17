@@ -2,12 +2,12 @@ import styled from 'styled-components';
 import { NavItem } from '../Header/HeaderStyles';
 
 export const FooterContainer = styled.div`
-    background-color: ${({ theme }) => theme.colors.rosewater};
-    padding: 20px;
-	font-size: 80%;
-    border: 0px;
-    border-top: 1px;
-    border-style: solid;
+  background-color: ${({ theme }) => theme.colors.rosewater};
+  padding: 20px;
+  font-size: 80%;
+  border: 0px;
+  border-top: 1px;
+  border-style: solid;
 `;
 
 export const Links = styled.div`
