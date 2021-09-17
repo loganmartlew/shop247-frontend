@@ -14,7 +14,7 @@ export const Name = styled.h2`
   color: ${({ theme }) => theme.colors.black};
 `;
 
-export const Description = styled.h3`
+export const Description = styled.h4`
   color: ${({ theme }) => theme.colors.black};
 `;
 

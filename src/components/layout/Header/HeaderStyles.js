@@ -20,8 +20,7 @@ export const Logo = styled.img`
   height: 100%;
 `;
 
-export const NavBar = styled.nav`
-`;
+export const NavBar = styled.nav``;
 
 export const NavList = styled.ul`
   display: flex;
