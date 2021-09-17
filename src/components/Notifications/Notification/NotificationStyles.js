@@ -11,6 +11,7 @@ export const NotificationContainer = styled.div`
   color: ${({ theme }) => theme.colors.white};
   box-shadow: 2px 3px 10px 1px rgba(0, 0, 0, 0.3);
   overflow: hidden;
+  cursor: pointer;
   animation: ${({ exit }) => (exit ? 'SlideRight' : 'SlideLeft')} 0.3s;
   animation-fill-mode: forwards;
 
