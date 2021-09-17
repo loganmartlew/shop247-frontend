@@ -56,6 +56,7 @@ const Notification = ({ id, type, message }) => {
       type={type}
       exit={exit}
       onMouseEnter={pauseTimer}
+      onClick={closeNotification}
       onMouseLeave={startTimer}
     >
       <Message>{message}</Message>
