@@ -21,6 +21,7 @@ import UserPage from './components/pages/UserPage';
 import CartPage from './components/pages/CartPage';
 import PaymentSuccessPage from './components/pages/PaymentSuccessPage';
 import PaymentCancelPage from './components/pages/PaymentCancelPage';
+import ContactUsPage from './components/pages/ContactUsPage';
 
 // Initialize Firebase
 import './firebase';
@@ -61,6 +62,7 @@ const App = () => {
                       path='/paymentcancel'
                       component={PaymentCancelPage}
                     />
+                    <Route component={ContactUsPage} />
                   </Switch>
                 </Layout>
               </Router>
