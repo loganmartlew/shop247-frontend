@@ -19,8 +19,9 @@ const SearchPage = () => {
   useEffect(() => {
     const parsedQuery = queryString.parse(location.search);
     const search = parsedQuery.s;
+    const page = parsedQuery.page;
 
-    fetchApi(`/products?search=${search}`)
+    fetchApi(`/products?search=${search}${page ? `&page=${page}` : ''}`)
       .then(res => res.json())
       .then(data => {
         setOriginalProducts(data.products);
