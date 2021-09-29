@@ -1,6 +1,7 @@
 import { useHistory } from 'react-router-dom';
 import populateArrayLength from '../../../../util/populateArrayLength';
 import Indicator from './Indicator';
+import { IndicatorContainer, IndicatorButton } from './PageIndicatorsStyles';
 
 const PageIndicators = ({ pages }) => {
   const pageArr = populateArrayLength(new Array(pages.total));
@@ -17,25 +18,25 @@ const PageIndicators = ({ pages }) => {
   };
 
   return (
-    <div>
-      <button
+    <IndicatorContainer>
+      <IndicatorButton
         disabled={pages.page === 1}
         onClick={() => history.push(getPath(-1))}
       >
         &lt;
-      </button>
+      </IndicatorButton>
 
       {pageArr.map((_, i) => (
         <Indicator page={i + 1} active={pages.page === i + 1} key={i} />
       ))}
 
-      <button
+      <IndicatorButton
         disabled={pages.page === pages.total}
         onClick={() => history.push(getPath(1))}
       >
         &gt;
-      </button>
-    </div>
+      </IndicatorButton>
+    </IndicatorContainer>
   );
 };
 
