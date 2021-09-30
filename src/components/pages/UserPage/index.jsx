@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { fetchApi } from '../../../util/fetchApi';
-import ProductList from '../../products/ProductList';
+import UserProducts from '../../products/UserProducts';
 import { UserSection, ListingsTitle, ProductsSection } from './UserPageStyles';
 
 const UserPage = () => {
@@ -31,7 +31,7 @@ const UserPage = () => {
       </UserSection>
       <ListingsTitle>{user.name}'s Listings</ListingsTitle>
       <ProductsSection>
-        <ProductList products={products} />
+        <UserProducts products={products} />
       </ProductsSection>
     </div>
   );

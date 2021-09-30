@@ -15,7 +15,8 @@ import SignUpPage from './components/pages/SignUpPage';
 import SearchPage from './components/pages/SearchPage';
 import ProductPage from './components/pages/ProductPage';
 import ListPage from './components/pages/ListPage';
-import OrdersPage from './components/pages/OrdersPage';
+import ChangePage from './components/pages/ChangePage';
+import OrdersPage from './components/pages/ChangePage';
 import ProfilePage from './components/pages/ProfilePage';
 import UserPage from './components/pages/UserPage';
 import CartPage from './components/pages/CartPage';
@@ -44,6 +45,7 @@ const App = () => {
                     <Route path='/search' component={SearchPage} />
                     <Route path='/product/:productid' component={ProductPage} />
                     <PrivateRoute path='/list' component={ListPage} />
+                    <PrivateRoute path='/change' component={ChangePage} />
 
                     <PrivateRoute
                       path='/profile/orders'
