@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useHistory } from 'react-router';
 import { useForm } from 'react-hook-form';
 import Button from '../../Button';
@@ -14,7 +14,7 @@ import submitNewProduct from '../../../util/submitNewProduct';
 import { useAuth } from '../../../contexts/AuthContext';
 import { useNotification } from '../../../contexts/NotificationContext';
 
-const ProductForm = () => {
+const ProductForm = ({ product }) => {
   const { user } = useAuth();
   const { addError, addSuccess } = useNotification();
 
@@ -24,10 +24,16 @@ const ProductForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({ defaultValues: product ?? null});
 
   const [images, setImages] = useState([]);
   const imageRef = useRef(null);
+
+  useEffect(() => {
+    if(!product) return;
+
+    setImages(product.images)
+  }, [product])
 
   const addImage = e => {
     e.preventDefault();

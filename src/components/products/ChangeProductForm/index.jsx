@@ -62,8 +62,9 @@ const ProductForm = ({ product }) => {
       <Form>
       <h2>General Info</h2>
 
+        <p>Product ID: </p>
         <p><strong>Product Name: </strong></p>
-        <p><strong>Product Price: </strong></p>{formatDisplayPrice(product.price)}
+        <p><strong>Product Price: </strong></p>
 
       {/* <FormGroup>
         <FieldLabel htmlFor='description'>Description:</FieldLabel>

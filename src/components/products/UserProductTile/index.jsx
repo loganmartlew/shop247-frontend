@@ -32,7 +32,7 @@ const UserProductTile = ({ product }) => {
       <BottomRow>
         <Price>{formatDisplayPrice(product.price)}</Price>
         {/* <Button solid onClick={() => addItem({ quantity: 1, product })}> */}
-        <Link to='/change'>
+        <Link to={`/change/${product._id}`}>
             <Button solid>
             Change Details
             </Button>
