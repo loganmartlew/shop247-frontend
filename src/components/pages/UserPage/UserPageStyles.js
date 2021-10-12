@@ -12,7 +12,8 @@ export const UserSection = styled.section`
 `;
 
 export const Rating = styled.section`
-    display: inline-flex;
+  display: inline-flex;
+  cursor: pointer;
 `;
 
 export const ListingsTitle = styled.h1`
