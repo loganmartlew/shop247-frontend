@@ -1,12 +1,12 @@
 import {RatingContainer, Star} from './TrustRatingStyling';
-import {AiFillStar}from 'react-icons/ai';
+import { AiFillStar } from 'react-icons/ai';
 import { useState } from 'react';
 
 const TrustRating = () => {
 
     const [selected, setSelected] =  useState(0);
     const [hoverSelected, setHoverSelected] = useState(0);
-
+    
     const handleClick = star => {
         setSelected(star);
     }

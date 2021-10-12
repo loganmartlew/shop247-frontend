@@ -11,6 +11,10 @@ export const UserSection = styled.section`
   background-color: ${({ theme }) => lighten(0.1, theme.colors.lilac)};
 `;
 
+export const Rating = styled.section`
+    display: inline-flex;
+`;
+
 export const ListingsTitle = styled.h1`
   text-align: center;
   margin-bottom: 0.7em;
