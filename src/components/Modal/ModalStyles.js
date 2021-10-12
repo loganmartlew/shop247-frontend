@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 export const ModalPageWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   top: 0;
   left: 0;
@@ -15,6 +18,7 @@ export const ModalContainer = styled.div`
   background-color: #fff;
   width: max-content;
   height: max-content;
+  margin-bottom: 10rem;
   padding: clamp(0.5em, 5%, 3em);
   padding-top: min(2.5em);
 `;
