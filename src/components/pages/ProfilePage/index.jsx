@@ -12,6 +12,7 @@ import {
 } from '../ProfilePage/ProfilePageStyles';
 import { useAuth } from '../../../contexts/AuthContext';
 
+
 const ProfilePage = () => {
   const { user, resetPassword } = useAuth();
 
@@ -53,9 +54,20 @@ const ProfilePage = () => {
                     </Link>
                   </FakeLink>
                 </p>
+                
               </Section1>
+
+              
+
             </DescBox>
+
+            
+
+
           </div>
+
+          
+
         </ProfileBox>
       </PageWrapper>
     </>

@@ -8,6 +8,7 @@ import CartProvider from './contexts/CartContext';
 import GlobalStyles from './styles/globals';
 import theme from './styles/theme';
 
+
 // Page Components
 import HomePage from './components/pages/HomePage';
 import SignInPage from './components/pages/SignInPage';
@@ -22,6 +23,7 @@ import CartPage from './components/pages/CartPage';
 import PaymentSuccessPage from './components/pages/PaymentSuccessPage';
 import PaymentCancelPage from './components/pages/PaymentCancelPage';
 import ContactUsPage from './components/pages/ContactUsPage';
+
 
 // Initialize Firebase
 import './firebase';
@@ -52,7 +54,7 @@ const App = () => {
                     />
                     <PrivateRoute path='/profile' component={ProfilePage} />
                     <Route path='/user/:userid' component={UserPage} />
-
+                    
                     <Route path='/cart' component={CartPage} />
                     <Route
                       path='/paymentsuccess'
