@@ -1,32 +1,23 @@
-import styled from "styled-components"
-
-
+import styled from 'styled-components';
 
 export const RatingContainer = styled.div`
-    color: grey;
-    font-size: 1.2rem;
-    padding-left: 10px;
+  color: grey;
+  font-size: 1.2rem;
+  padding-left: 10px;
 `;
 
 export const Star = styled.span`
-    
-            
-    ${({selected, hoverSelected}) => {
-        switch(true) {
-            case selected: {
-                return 'color: hsl(51, 100%, 50%)'; //gold
-            }
-            case hoverSelected: {
-                return 'color: hsl(60, 100%, 50%)'; //yellow
-            }
-            default: {
-                return 'color: grey';
-            }
-        }
-    }};
-
-
+  color: ${({ display, selected, hoverSelected, theme }) => {
+    switch (true) {
+      case selected: {
+        return theme.colors.gold;
+      }
+      case hoverSelected: {
+        return display ? theme.colors.grey : theme.colors.yellow;
+      }
+      default: {
+        return theme.colors.grey;
+      }
+    }
+  }};
 `;
-
-
-

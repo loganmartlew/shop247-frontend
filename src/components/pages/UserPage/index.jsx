@@ -4,7 +4,12 @@ import { fetchApi } from '../../../util/fetchApi';
 import ProductList from '../../products/ProductList';
 import TrustRating from '../../TrustRating';
 
-import { UserSection, Rating, ListingsTitle, ProductsSection } from './UserPageStyles';
+import {
+  UserSection,
+  Rating,
+  ListingsTitle,
+  ProductsSection,
+} from './UserPageStyles';
 
 const UserPage = () => {
   const [user, setUser] = useState(null);
@@ -30,7 +35,14 @@ const UserPage = () => {
         <h1>{user.name}</h1>
         <p>Email: {user.email}</p>
         <p>Location: Auckland</p>
-        <Rating>Trust Rating: <TrustRating /></Rating>
+        <Rating>
+          Trust Rating:{' '}
+          {user.rating?.rating ? (
+            <TrustRating display rating={user.rating.rating} />
+          ) : (
+            'No Rating'
+          )}
+        </Rating>
       </UserSection>
       <ListingsTitle>{user.name}'s Listings</ListingsTitle>
       <ProductsSection>

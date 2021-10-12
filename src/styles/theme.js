@@ -6,6 +6,7 @@ const baseColors = {
   orange: 'hsl(39, 82%, 56%)',
   blue: 'hsl(214, 100%, 54%)',
   purple: 'hsl(280, 67%, 28%)',
+
   yellow: 'hsl(60, 100%, 50%)',
   gold: 'hsl(51, 100%, 50%)',
 
