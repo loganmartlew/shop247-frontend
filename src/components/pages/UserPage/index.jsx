@@ -1,10 +1,9 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useParams } from 'react-router';
 import { fetchApi } from '../../../util/fetchApi';
-import ProductList from '../../products/ProductList';
+import UserProducts from '../../products/UserProducts';
 import TrustRating from '../../TrustRating';
 import RateModal from './RateModal';
-
 import {
   UserSection,
   Rating,
@@ -58,7 +57,7 @@ const UserPage = () => {
       </UserSection>
       <ListingsTitle>{user.name}'s Listings</ListingsTitle>
       <ProductsSection>
-        <ProductList products={products} />
+        <UserProducts products={products} />
       </ProductsSection>
     </div>
   );
