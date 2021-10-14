@@ -1,8 +1,8 @@
 import { authFetchApi } from './fetchApi';
-import ChangeIsValid from './changeIsValid';
+import changeIsValid from './changeIsValid';
 
 const changeProduct = async (currentProductID, product, user) => {
-  if (!ChangeIsValid(product)) throw new Error();
+  if (!changeIsValid(product)) throw new Error();
   if (!currentProductID) throw new Error();
 
   const res = await authFetchApi(
