@@ -1,5 +1,5 @@
 import { authFetchApi } from './fetchApi';
-import ChangeIsValid from './ChangeIsValid';
+import ChangeIsValid from './changeIsValid';
 
 const changeProduct = async (currentProductID, product, user) => {
   if (!ChangeIsValid(product)) throw new Error();
@@ -9,9 +9,6 @@ const changeProduct = async (currentProductID, product, user) => {
     `/products/${currentProductID}`,
     {
       method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-      },
       body: JSON.stringify({ product }),
     },
     user
@@ -19,7 +16,7 @@ const changeProduct = async (currentProductID, product, user) => {
 
   if (!res.ok) throw new Error('');
 
-  console.log("CURRENT PRODUCT:", currentProductID)
+  console.log('CURRENT PRODUCT:', currentProductID);
 };
 
 export default changeProduct;

@@ -8,9 +8,6 @@ const submitNewProduct = async (product, user) => {
     `/products`,
     {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
       body: JSON.stringify({ product }),
     },
     user

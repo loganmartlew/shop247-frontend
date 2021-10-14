@@ -6,7 +6,7 @@
  * @return {boolean} valid - Boolean value describing if the product is valid
  */
 
-const ChangeIsValid = product => {
+const changeIsValid = product => {
   if (!product) return false;
 
   /* Validate name */
@@ -33,4 +33,4 @@ const ChangeIsValid = product => {
   return true;
 };
 
-export default ChangeIsValid;
+export default changeIsValid;
