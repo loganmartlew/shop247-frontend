@@ -12,11 +12,8 @@ import {
   Price,
 } from './Style';
 import formatDisplayPrice from '../../../util/formatDisplayPrice';
-import { useCart } from '../../../contexts/CartContext';
 
 const UserProductTile = ({ product }) => {
-  const { addItem } = useCart();
-
   return (
     <Tile>
       <Link to={`/product/${product._id}`}>
@@ -31,11 +28,8 @@ const UserProductTile = ({ product }) => {
       </Link>
       <BottomRow>
         <Price>{formatDisplayPrice(product.price)}</Price>
-        {/* <Button solid onClick={() => addItem({ quantity: 1, product })}> */}
         <Link to={`/change/${product._id}`}>
-            <Button solid>
-            Change Details
-            </Button>
+          <Button solid>Change Details</Button>
         </Link>
       </BottomRow>
     </Tile>

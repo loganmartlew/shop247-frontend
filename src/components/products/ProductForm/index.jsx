@@ -13,8 +13,7 @@ import {
 import submitNewProduct from '../../../util/submitNewProduct';
 import { useAuth } from '../../../contexts/AuthContext';
 import { useNotification } from '../../../contexts/NotificationContext';
-import { Link } from 'react-router-dom';
-import changeProduct from '../../../util/ChangeProduct';
+import changeProduct from '../../../util/changeProduct';
 
 const ProductForm = ({ product }) => {
   const { user } = useAuth();
@@ -26,16 +25,16 @@ const ProductForm = ({ product }) => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ defaultValues: product ?? null});
+  } = useForm({ defaultValues: product ?? null });
 
   const [images, setImages] = useState([]);
   const imageRef = useRef(null);
 
   useEffect(() => {
-    if(!product) return;
+    if (!product) return;
 
-    setImages(product.images)
-  }, [product])
+    setImages(product.images);
+  }, [product]);
 
   const addImage = e => {
     e.preventDefault();
@@ -53,16 +52,22 @@ const ProductForm = ({ product }) => {
   let currentProductID = null;
   let currentProduct = null;
 
-  if(!product){ // find if product exists
+  if (!product) {
+    // find if product exists
     editMode = false;
-    console.log(editMode, "no product");
+    console.log(editMode, 'no product');
   } else {
     editMode = true;
     currentProductID = product._id;
     currentProduct = product;
 
-    console.log("product:", currentProduct);
-    console.log("edit mode:", editMode, "current product id: ", currentProductID);
+    console.log('product:', currentProduct);
+    console.log(
+      'edit mode:',
+      editMode,
+      'current product id: ',
+      currentProductID
+    );
   }
 
   const submit = async ({ name, description, price: priceString }) => {
@@ -71,8 +76,9 @@ const ProductForm = ({ product }) => {
     if (images.length < 1) return;
 
     const data = { name, description, price, images, sellerId: user.uid };
-    
-    if(editMode === false){ // adds new product to database
+
+    if (editMode === false) {
+      // adds new product to database
       try {
         await submitNewProduct(data, user);
         addSuccess('Product listed!');
@@ -80,17 +86,18 @@ const ProductForm = ({ product }) => {
       } catch (_) {
         addError('Product is invalid');
       }
-    } else { // changes existing product in database
+    } else {
+      // changes existing product in database
       try {
         await changeProduct(currentProductID, data, user);
         console.log(currentProductID);
         addSuccess('Changed product: ', product.name);
         history.push(`/user/${user.uid}`);
-      } catch(_){
+      } catch (_) {
         addError('Change is invalid');
       }
-      
-      console.log("submit = change product details");
+
+      console.log('submit = change product details');
     }
   };
 
