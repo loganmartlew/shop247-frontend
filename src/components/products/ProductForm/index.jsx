@@ -89,6 +89,12 @@ const ProductForm = ({ product }) => {
 
   const deleteProduct = async () => {
     try {
+      const confirm = window.confirm(
+        'Are you sure you want to delete this listing?'
+      );
+
+      if (!confirm) return;
+
       await removeProduct(product._id, user);
       addSuccess('Product deleted');
       history.push(`/user/${user.uid}`);
