@@ -9,7 +9,7 @@ const changeProduct = async (currentProductID, product, user) => {
     `/products/${currentProductID}`,
     {
       method: 'PATCH',
-      body: JSON.stringify({ product }),
+      body: JSON.stringify({ updates: product }),
     },
     user
   );

@@ -21,11 +21,21 @@ const ProductForm = ({ product }) => {
 
   const history = useHistory();
 
+  // Convert price from cents to dollars
+  const formatProductPrice = product => {
+    const formattedProduct = {
+      ...product,
+      price: product.price / 100,
+    };
+
+    return formattedProduct;
+  };
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ defaultValues: product ?? null });
+  } = useForm({ defaultValues: formatProductPrice(product) ?? null });
 
   const [images, setImages] = useState([]);
   const imageRef = useRef(null);
@@ -55,19 +65,19 @@ const ProductForm = ({ product }) => {
   if (!product) {
     // find if product exists
     editMode = false;
-    console.log(editMode, 'no product');
+    // console.log(editMode, 'no product');
   } else {
     editMode = true;
     currentProductID = product._id;
     currentProduct = product;
 
-    console.log('product:', currentProduct);
-    console.log(
-      'edit mode:',
-      editMode,
-      'current product id: ',
-      currentProductID
-    );
+    // console.log('product:', currentProduct);
+    // console.log(
+    //   'edit mode:',
+    //   editMode,
+    //   'current product id: ',
+    //   currentProductID
+    // );
   }
 
   const submit = async ({ name, description, price: priceString }) => {
@@ -96,8 +106,6 @@ const ProductForm = ({ product }) => {
       } catch (_) {
         addError('Change is invalid');
       }
-
-      console.log('submit = change product details');
     }
   };
 
