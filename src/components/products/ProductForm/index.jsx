@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { useHistory } from 'react-router';
+import { useHistory, Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import Button from '../../Button';
 import {
@@ -35,7 +35,9 @@ const ProductForm = ({ product }) => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ defaultValues: formatProductPrice(product) ?? null });
+  } = useForm({
+    defaultValues: product != null ? formatProductPrice(product) : null,
+  });
 
   const [images, setImages] = useState([]);
   const imageRef = useRef(null);
@@ -56,30 +58,6 @@ const ProductForm = ({ product }) => {
     imageRef.current.value = '';
   };
 
-  /* NEW */
-
-  let editMode = false;
-  let currentProductID = null;
-  let currentProduct = null;
-
-  if (!product) {
-    // find if product exists
-    editMode = false;
-    // console.log(editMode, 'no product');
-  } else {
-    editMode = true;
-    currentProductID = product._id;
-    currentProduct = product;
-
-    // console.log('product:', currentProduct);
-    // console.log(
-    //   'edit mode:',
-    //   editMode,
-    //   'current product id: ',
-    //   currentProductID
-    // );
-  }
-
   const submit = async ({ name, description, price: priceString }) => {
     const price = parseInt(parseFloat(priceString) * 100);
 
@@ -87,7 +65,7 @@ const ProductForm = ({ product }) => {
 
     const data = { name, description, price, images, sellerId: user.uid };
 
-    if (editMode === false) {
+    if (!product) {
       // adds new product to database
       try {
         await submitNewProduct(data, user);
@@ -99,8 +77,8 @@ const ProductForm = ({ product }) => {
     } else {
       // changes existing product in database
       try {
-        await changeProduct(currentProductID, data, user);
-        console.log(currentProductID);
+        await changeProduct(product._id, data, user);
+        console.log(product._id);
         addSuccess('Changed product: ', product.name);
         history.push(`/user/${user.uid}`);
       } catch (_) {
@@ -181,11 +159,11 @@ const ProductForm = ({ product }) => {
         Submit
       </Button>
 
-      {/* <Link to={`/user/${user.uid}`}>
-          <Button>
-              Back
-          </Button>
-      </Link> */}
+      {product && (
+        <Button>
+          <Link to={`/user/${user.uid}`}>Back</Link>
+        </Button>
+      )}
     </Form>
   );
 };
