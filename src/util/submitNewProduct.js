@@ -13,7 +13,7 @@ const submitNewProduct = async (product, user) => {
     user
   );
 
-  if (!res.ok) throw new Error('');
+  if (!res.ok) throw new Error();
 };
 
 export default submitNewProduct;

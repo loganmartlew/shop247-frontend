@@ -14,9 +14,7 @@ const changeProduct = async (currentProductID, product, user) => {
     user
   );
 
-  if (!res.ok) throw new Error('');
-
-  console.log('CURRENT PRODUCT:', currentProductID);
+  if (!res.ok) throw new Error();
 };
 
 export default changeProduct;

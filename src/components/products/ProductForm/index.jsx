@@ -11,9 +11,10 @@ import {
   ErrorMessage,
 } from '../../Form';
 import submitNewProduct from '../../../util/submitNewProduct';
+import changeProduct from '../../../util/changeProduct';
+import removeProduct from '../../../util/removeProduct';
 import { useAuth } from '../../../contexts/AuthContext';
 import { useNotification } from '../../../contexts/NotificationContext';
-import changeProduct from '../../../util/changeProduct';
 
 const ProductForm = ({ product }) => {
   const { user } = useAuth();
@@ -70,7 +71,7 @@ const ProductForm = ({ product }) => {
       try {
         await submitNewProduct(data, user);
         addSuccess('Product listed!');
-        history.push('/');
+        history.push(`/user/${user.uid}`);
       } catch (_) {
         addError('Product is invalid');
       }
@@ -78,12 +79,21 @@ const ProductForm = ({ product }) => {
       // changes existing product in database
       try {
         await changeProduct(product._id, data, user);
-        console.log(product._id);
-        addSuccess('Changed product: ', product.name);
+        addSuccess('Product updated');
         history.push(`/user/${user.uid}`);
       } catch (_) {
         addError('Change is invalid');
       }
+    }
+  };
+
+  const deleteProduct = async () => {
+    try {
+      await removeProduct(product._id, user);
+      addSuccess('Product deleted');
+      history.push(`/user/${user.uid}`);
+    } catch (_) {
+      addError('Failed to delete listing');
     }
   };
 
@@ -164,6 +174,7 @@ const ProductForm = ({ product }) => {
           <Link to={`/user/${user.uid}`}>Back</Link>
         </Button>
       )}
+      {product && <Button onClick={deleteProduct}>Delete</Button>}
     </Form>
   );
 };
