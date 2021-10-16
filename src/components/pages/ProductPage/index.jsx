@@ -44,7 +44,6 @@ const ProductPage = () => {
       <Link to={`/user/${user.uid}`}>
         <Button>View Profile</Button>
       </Link>
-      {/*just a basic what-it-might-look-like*/}
       <Logos>
         <Link to='/'>
           <FacebookLogo>

@@ -22,7 +22,6 @@ export const Price = styled.h3`
   color: ${({ theme }) => theme.colors.black};
 `;
 
-// to do: maybe change below, or not
 export const Logos = styled.div`
   float: right;
   padding-right: 20px;
