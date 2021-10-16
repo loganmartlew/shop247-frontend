@@ -9,11 +9,16 @@ import {
   ProfileBox,
   Section1,
   FakeLink,
+  // Imahe,
+  ImageWrapper,
+  ProfilePic,
 } from '../ProfilePage/ProfilePageStyles';
 import { useAuth } from '../../../contexts/AuthContext';
 
 const ProfilePage = () => {
   const { user, resetPassword } = useAuth();
+
+  
 
   const resetClick = () => {
     resetPassword(user.email);
@@ -27,6 +32,11 @@ const ProfilePage = () => {
             <DescBox>
               <AccHeader>My Account</AccHeader>
               <AccID>Account ID: xxxxx</AccID>
+              <ProfilePic>
+              <ImageWrapper>
+                <img src={user.profile_pic} alt='profilepic'/>
+              </ImageWrapper>
+              </ProfilePic>
               <Section1>
                 <p>
                   <strong>User Name: </strong> {user.displayName}
