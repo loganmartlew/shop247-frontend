@@ -9,7 +9,7 @@ import {
   ProfileBox,
   Section1,
   FakeLink,
-  // Imahe,
+  Imahe,
   ImageWrapper,
   ProfilePic,
 } from '../ProfilePage/ProfilePageStyles';
@@ -34,7 +34,7 @@ const ProfilePage = () => {
               <AccID>Account ID: xxxxx</AccID>
               <ProfilePic>
               <ImageWrapper>
-                <img src={user.profile_pic} alt='profilepic'/>
+              <Imahe src='/testpicture.jpg' alt='testpicture' />
               </ImageWrapper>
               </ProfilePic>
               <Section1>

@@ -72,15 +72,10 @@ export const ProfilePic = styled.section`
 `;
 
 export const ImageWrapper = styled.div`
-  position: relative;
-  height: var(--width);
-  width: 100%;
-  margin-bottom: 0.5em;
-  overflow: hidden;
 `;
 export const Imahe = styled.img`
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 100%;
+  border-style: solid;
+  border-width: 2px;
+  height: 10%;
+  width: 10%;
 `;
