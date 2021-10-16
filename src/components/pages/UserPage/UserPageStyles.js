@@ -19,3 +19,26 @@ export const ListingsTitle = styled.h1`
 export const ProductsSection = styled.section`
   margin-bottom: 2em;
 `;
+
+export const Logos = styled.div`
+  padding-right: 20px;
+  color: black;
+  font-size: 150%;
+`;
+
+export const FacebookLogo = styled.li`
+  list-style: none;
+  display: inline-block;
+  padding-right: 15px;
+`;
+
+export const TwitterLogo = styled.li`
+  list-style: none;
+  display: inline-block;
+  padding-right: 15px;
+`;
+
+export const InstagramLogo = styled.li`
+  list-style: none;
+  display: inline-block;
+`;
