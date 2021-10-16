@@ -1,6 +1,12 @@
 import { Link } from 'react-router-dom';
 import { BsFillGearFill } from 'react-icons/bs';
-import { AiOutlineShoppingCart, AiOutlineFile } from 'react-icons/ai';
+import {
+  AiOutlineShoppingCart,
+  AiOutlineFile,
+  AiOutlineFacebook,
+  AiFillTwitterSquare,
+  AiOutlineInstagram,
+} from 'react-icons/ai';
 import {
   AccHeader,
   AccID,
@@ -51,6 +57,27 @@ const ProfilePage = () => {
                     <Link to={`/user/${user.uid}`}>
                       <AiOutlineFile /> Your Listings
                     </Link>
+                  </FakeLink>
+                </p>
+                <p>
+                  <strong>Additional Links: </strong>
+                </p>
+                <p>
+                  <AiOutlineFacebook /> Facebook:
+                  <FakeLink>
+                    <Link to='/'> Link </Link>
+                  </FakeLink>
+                </p>
+                <p>
+                  <AiFillTwitterSquare /> Twitter:
+                  <FakeLink>
+                    <Link to='/'> Link </Link>
+                  </FakeLink>
+                </p>
+                <p>
+                  <AiOutlineInstagram /> Instagram:
+                  <FakeLink>
+                    <Link to='/'> Link </Link>
                   </FakeLink>
                 </p>
               </Section1>
