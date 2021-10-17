@@ -9,14 +9,9 @@ import {
   ProductsSection,
   Logos,
   FacebookLogo,
-  TwitterLogo,
   InstagramLogo,
 } from './UserPageStyles';
-import {
-  AiOutlineFacebook,
-  AiFillTwitterSquare,
-  AiOutlineInstagram,
-} from 'react-icons/ai';
+import { AiOutlineFacebook, AiOutlineInstagram } from 'react-icons/ai';
 
 const UserPage = () => {
   const [user, setUser] = useState(null);
@@ -44,21 +39,20 @@ const UserPage = () => {
         <p>Location: Auckland</p>
         <p>{user.name}'s additional links:</p>
         <Logos>
-          <Link to='/'>
-            <FacebookLogo>
-              <AiOutlineFacebook />
-            </FacebookLogo>
-          </Link>
-          <Link to='/'>
-            <TwitterLogo>
-              <AiFillTwitterSquare />
-            </TwitterLogo>
-          </Link>
-          <Link to='/'>
-            <InstagramLogo>
-              <AiOutlineInstagram />
-            </InstagramLogo>
-          </Link>
+          {user.social.facebook && (
+            <Link to='/'>
+              <FacebookLogo>
+                <AiOutlineFacebook />
+              </FacebookLogo>
+            </Link>
+          )}
+          {user.social.instagram && (
+            <Link to='/'>
+              <InstagramLogo>
+                <AiOutlineInstagram />
+              </InstagramLogo>
+            </Link>
+          )}
         </Logos>
       </UserSection>
       <ListingsTitle>{user.name}'s Listings</ListingsTitle>

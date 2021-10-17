@@ -32,12 +32,6 @@ export const FacebookLogo = styled.li`
   padding-right: 15px;
 `;
 
-export const TwitterLogo = styled.li`
-  list-style: none;
-  display: inline-block;
-  padding-right: 15px;
-`;
-
 export const InstagramLogo = styled.li`
   list-style: none;
   display: inline-block;

@@ -4,7 +4,6 @@ import {
   AiOutlineShoppingCart,
   AiOutlineFile,
   AiOutlineFacebook,
-  AiFillTwitterSquare,
   AiOutlineInstagram,
 } from 'react-icons/ai';
 import {
@@ -15,6 +14,9 @@ import {
   ProfileBox,
   Section1,
   FakeLink,
+  Logos,
+  FacebookLogo,
+  InstagramLogo,
 } from '../ProfilePage/ProfilePageStyles';
 import { useAuth } from '../../../contexts/AuthContext';
 
@@ -40,6 +42,22 @@ const ProfilePage = () => {
                 <p>
                   <strong>Email: </strong> {user.email}
                 </p>
+                <Logos>
+                  {user.social.facebook && (
+                    <Link to='/'>
+                      <FacebookLogo>
+                        <AiOutlineFacebook />
+                      </FacebookLogo>
+                    </Link>
+                  )}
+                  {user.social.instagram && (
+                    <Link to='/'>
+                      <InstagramLogo>
+                        <AiOutlineInstagram />
+                      </InstagramLogo>
+                    </Link>
+                  )}
+                </Logos>
                 <p>
                   <FakeLink onClick={resetClick}>
                     <BsFillGearFill /> Change Password
@@ -57,27 +75,6 @@ const ProfilePage = () => {
                     <Link to={`/user/${user.uid}`}>
                       <AiOutlineFile /> Your Listings
                     </Link>
-                  </FakeLink>
-                </p>
-                <p>
-                  <strong>Additional Links: </strong>
-                </p>
-                <p>
-                  <AiOutlineFacebook /> Facebook:
-                  <FakeLink>
-                    <Link to='/'> Link </Link>
-                  </FakeLink>
-                </p>
-                <p>
-                  <AiFillTwitterSquare /> Twitter:
-                  <FakeLink>
-                    <Link to='/'> Link </Link>
-                  </FakeLink>
-                </p>
-                <p>
-                  <AiOutlineInstagram /> Instagram:
-                  <FakeLink>
-                    <Link to='/'> Link </Link>
                   </FakeLink>
                 </p>
               </Section1>
