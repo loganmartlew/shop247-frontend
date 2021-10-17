@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
-import { PageWrapper } from './EPPStyles';
+import { PageWrapper, Image } from './EPPStyles';
 
 import {
   Form,
@@ -17,6 +17,7 @@ import { useAuth } from '../../../contexts/AuthContext';
 import { useNotification } from '../../../contexts/NotificationContext';
 
 const EditProfilePage = () => {
+  const [Img, setImg] = useState(null);
   const { user } = useAuth();
   const { addError, addSuccess } = useNotification();
 
@@ -28,12 +29,24 @@ const EditProfilePage = () => {
     formState: { errors },
   } = useForm({});
 
+  const UpdateAvatarAAng = () => {
+    
+  }
   return (
     <>
       <PageWrapper>
         <Form onSubmit={handleSubmit()}>
           <h3> Change Account Details </h3>
-          <FormGroup>*** this where ren puts his ting ***</FormGroup>
+          <FormGroup>
+          <Image src={Img} alt='profilepic' />
+          <br />
+          <input
+                    type='text'
+                    placeholder='Enter text'
+                    onChange={event => setImg(event.target.value)}
+                  />
+                  <input type='submit' value='Submit' />
+          </FormGroup>
           <FormGroup>
             <FieldLabel htmlFor='name'>User Name:</FieldLabel>
             <TextInput

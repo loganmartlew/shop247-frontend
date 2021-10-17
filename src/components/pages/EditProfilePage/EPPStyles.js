@@ -20,3 +20,10 @@ export const Form = styled.form`
   background-color: ${({ theme }) => theme.colors.pewter};
   box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.4);
 `;
+
+export const Image = styled.img`
+  border-style: solid;
+  border-width: 2px;
+  height: 60%;
+  width: 20%;
+`;
