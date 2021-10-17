@@ -67,15 +67,10 @@ export const FakeLink = styled.span`
   }
 `;
 
-export const ProfilePic = styled.section`
-  display: inline-block;
-`;
-
-export const ImageWrapper = styled.div`
-`;
 export const Imahe = styled.img`
   border-style: solid;
   border-width: 2px;
-  height: 10%;
-  width: 10%;
+  height: 60%;
+  width: 20%;
+
 `;

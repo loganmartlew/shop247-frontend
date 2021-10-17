@@ -10,8 +10,6 @@ import {
   Section1,
   FakeLink,
   Imahe,
-  ImageWrapper,
-  ProfilePic,
 } from '../ProfilePage/ProfilePageStyles';
 import { useAuth } from '../../../contexts/AuthContext';
 
@@ -32,12 +30,9 @@ const ProfilePage = () => {
             <DescBox>
               <AccHeader>My Account</AccHeader>
               <AccID>Account ID: xxxxx</AccID>
-              <ProfilePic>
-              <ImageWrapper>
-              <Imahe src='/testpicture.jpg' alt='testpicture' />
-              </ImageWrapper>
-              </ProfilePic>
               <Section1>
+              {/* <Imahe src={user.profile_pic} alt='profilepic'/> */}
+              <Imahe src='/testpicture.jpg' alt='testpicture' />
                 <p>
                   <strong>User Name: </strong> {user.displayName}
                 </p>
