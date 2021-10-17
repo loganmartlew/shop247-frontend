@@ -48,12 +48,23 @@ const UserPage = () => {
           <Image src={user.avatar} alt='profilepic' />
         </DisplayPictureSection>
         <h1>{user.name}</h1>
-        <p>Email: {user.email}</p>
-        <p>Location: Auckland</p>
-        <p>{user.name}'s additional links:</p>
+        <p>
+          <strong>Email: </strong>
+          {user.email}
+        </p>
+        {user.location && (
+          <p>
+            <strong>Location: </strong> {user.location}
+          </p>
+        )}
+        {user.socials && (
+          <p>
+            {user.name}'s additional links:
+          </p>
+        )}
         <SocialLinks user={user} />
         <Rating onClick={() => setRateOpen(true)}>
-          Trust Rating:{' '}
+          <strong>Trust Rating:</strong>{' '}
           {user.rating?.rating ? (
             <TrustRating display rating={rating} />
           ) : (

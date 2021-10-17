@@ -52,6 +52,11 @@ const ProfilePage = () => {
                 <p>
                   <strong>Email: </strong> {user.email}
                 </p>
+                {user.location && (
+                  <p>
+                    <strong>Location: </strong> {user.location}
+                  </p>
+                )}
                 {user.social && (
                   <div>
                     <strong>Socials:</strong>
