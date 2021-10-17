@@ -10,6 +10,8 @@ import {
   Logos,
   FacebookLogo,
   InstagramLogo,
+  Image,
+  DisplayPictureSection,
 } from './UserPageStyles';
 import { AiOutlineFacebook, AiOutlineInstagram } from 'react-icons/ai';
 
@@ -30,10 +32,12 @@ const UserPage = () => {
   }, [userid]);
 
   if (!user || !products) return null;
-
   return (
     <div>
       <UserSection>
+        <DisplayPictureSection>
+          <Image src={user.avatar} alt='profilepic' />
+        </DisplayPictureSection>
         <h1>{user.name}</h1>
         <p>Email: {user.email}</p>
         <p>Location: Auckland</p>

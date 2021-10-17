@@ -83,3 +83,10 @@ export const InstagramLogo = styled.li`
   list-style: none;
   display: inline-block;
 `;
+
+export const Image = styled.img`
+  border-style: solid;
+  border-width: 2px;
+  height: 60%;
+  width: 20%;
+`;
