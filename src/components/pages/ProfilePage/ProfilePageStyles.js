@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const PageWrapper = styled.div`
   display: grid;
   place-content: center;
-  height: 88vh;
+  height: 79.755vh;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -12,7 +12,7 @@ export const PageWrapper = styled.div`
 
 export const ProfileBox = styled.div`
   display: grid;
-  height: 88vh;
+  height: max-content;
   width: 100vh;
   background-color: transparent;
   padding-top: 5%;
