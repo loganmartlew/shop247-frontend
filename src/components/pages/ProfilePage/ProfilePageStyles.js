@@ -88,6 +88,6 @@ export const FakeLink = styled.span`
 export const Image = styled.img`
   border-style: solid;
   border-width: 2px;
-  height: 60%;
-  width: 20%;
+  height: 65%;
+  width: 15%;
 `;

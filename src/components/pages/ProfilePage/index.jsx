@@ -15,6 +15,7 @@ import {
   Section2,
   Section3,
   FakeLink,
+  Image
 } from '../ProfilePage/ProfilePageStyles';
 import SocialLinks from '../../SocialLinks';
 
@@ -43,18 +44,19 @@ const ProfilePage = () => {
               <AccHeader>My Account</AccHeader>
               <AccID>Account ID: xxxxx </AccID>
               <Section1>
+                <Image src={user.avatar} alt='profilepic' />
                 <p>
                   <strong>User Name: </strong> {user.name}
                 </p>
                 <p>
                   <strong>Email: </strong> {user.email}
                 </p>
-                { user.social && 
+                {user.social && (
                   <p>
                     <strong>Socials:</strong>
                     <SocialLinks user={user} />
                   </p>
-                }
+                )}
               </Section1>
               <Section2>
                 <p>
