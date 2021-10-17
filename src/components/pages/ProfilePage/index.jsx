@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { BsFillGearFill } from 'react-icons/bs';
+import { RiUserSettingsFill } from 'react-icons/ri';
 import { AiOutlineShoppingCart, AiOutlineFile } from 'react-icons/ai';
-import {
+import { 
   AccHeader,
   AccID,
   DescBox,
@@ -36,11 +37,6 @@ const ProfilePage = () => {
                   <strong>Email: </strong> {user.email}
                 </p>
                 <p>
-                  <FakeLink onClick={resetClick}>
-                    <BsFillGearFill /> Change Password
-                  </FakeLink>
-                </p>
-                <p>
                   <FakeLink>
                     <Link to='/profile/orders'>
                       <AiOutlineShoppingCart /> Purchase History
@@ -54,20 +50,21 @@ const ProfilePage = () => {
                     </Link>
                   </FakeLink>
                 </p>
-                
+                <p>
+                  <FakeLink onClick={resetClick}>
+                    <BsFillGearFill /> Change Password
+                  </FakeLink>
+                </p>
+                <p>
+                  <FakeLink>
+                    <Link to={'/editprofile'}>
+                      <RiUserSettingsFill /> Change Account Details
+                    </Link>
+                  </FakeLink>
+                </p>
               </Section1>
-
-              
-
             </DescBox>
-
-            
-
-
           </div>
-
-          
-
         </ProfileBox>
       </PageWrapper>
     </>
