@@ -32,10 +32,11 @@ const EditProfilePage = () => {
   const UpdateAvatarAAng = () => {
     
   }
+
   return (
     <>
       <PageWrapper>
-        <Form onSubmit={handleSubmit()}>
+        <Form onSubmit={handleSubmit(UpdateAvatarAAng, )}>
           <h3> Change Account Details </h3>
           <FormGroup>
           <Image src={Img} alt='profilepic' />
