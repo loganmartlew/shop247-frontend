@@ -34,9 +34,28 @@ export const DescBox = styled.div`
 export const Section1 = styled.section`
   text-align: left;
   background-color: transparent;
-  padding: 3%;
+  padding-left: 3%;
+  padding-top: 3%;
   border: 0px;
   border-top: 1px;
+  border-style: solid;
+  border-color: black;
+`;
+
+export const Section2 = styled.section`
+  text-align: left;
+  background-color: transparent;
+  padding-left: 3%;
+  padding-top: 2%;
+`;
+
+export const Section3 = styled.section`
+  text-align: left;
+  background-color: transparent;
+  padding-left: 3%;
+  padding-top: 2%;
+  padding-bottom: 3%;
+  border: 0px;
   border-bottom: 1px;
   border-style: solid;
   border-color: black;

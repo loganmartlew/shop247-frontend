@@ -12,6 +12,8 @@ import {
   PageWrapper,
   ProfileBox,
   Section1,
+  Section2,
+  Section3,
   FakeLink,
   Image,
 } from '../ProfilePage/ProfilePageStyles';
@@ -65,6 +67,8 @@ const ProfilePage = () => {
                   <strong>Email: </strong> {user.email}
                 </p>
                 <SocialLinks user={user} />
+              </Section1>
+              <Section2>
                 <p>
                   <FakeLink>
                     <Link to='/profile/orders'>
@@ -79,6 +83,8 @@ const ProfilePage = () => {
                     </Link>
                   </FakeLink>
                 </p>
+              </Section2>
+              <Section3>
                 <p>
                   <FakeLink onClick={resetClick}>
                     <BsFillGearFill /> Change Password
@@ -91,7 +97,7 @@ const ProfilePage = () => {
                     </Link>
                   </FakeLink>
                 </p>
-              </Section1>
+              </Section3>
             </DescBox>
           </div>
         </ProfileBox>
