@@ -27,7 +27,7 @@ export const Image = styled.img`
   border-style: solid;
   border-width: 1px;
   height: 60%;
-  width: 20%;
+  width: 50%;
 `;
 
 export const DisplayPictureSection = styled.div`
