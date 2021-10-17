@@ -14,22 +14,29 @@ import {
   FakeLink,
   Image,
 } from '../ProfilePage/ProfilePageStyles';
+import { Button } from 'antd';
 
 const ProfilePage = () => {
-  const [user, setUser] = useState(null);
+  const [user, setUser,] = useState(null);
+  const [Img, setImg,] = useState(null);
   const auth = useAuth();
 
   useEffect(() => {
     fetchApi(`/users/${auth.user.uid}`)
       .then(res => res.json())
       .then(data => setUser(data.user));
+
   }, [auth]);
 
   const resetClick = () => {
     auth.resetPassword(user.email);
   };
 
+  
   if (!user) return null;
+
+  
+  let imgsrc = Img;
 
   return (
     <>
@@ -38,9 +45,16 @@ const ProfilePage = () => {
           <div>
             <DescBox>
               <AccHeader>My Account</AccHeader>
-              <AccID>Account ID: xxxxx</AccID>
+              <AccID>Account ID: xxxxx </AccID>    
               <Section1>
-                <Image src={user.avatar} alt='profilepic' />
+                <Image src={imgsrc} alt='profilepic' />
+                <br />
+                <label> 
+                  imgurl:
+                <input type="text" placeholder="Enter text" onChange={event => setImg(event.target.value)} />
+                <input type="submit" value="Submit"/>
+                </label>
+                <Button> Submit </Button>               
                 <p>
                   <strong>User Name: </strong> {user.name}
                 </p>

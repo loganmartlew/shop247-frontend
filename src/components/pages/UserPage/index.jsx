@@ -27,7 +27,6 @@ const UserPage = () => {
   }, [userid]);
 
   if (!user || !products) return null;
-
   return (
     <div>
       <UserSection>
