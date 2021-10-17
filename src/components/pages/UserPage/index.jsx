@@ -2,8 +2,13 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { fetchApi } from '../../../util/fetchApi';
 import ProductList from '../../products/ProductList';
-import { UserSection, ListingsTitle, ProductsSection, Imahe, 
-DisplayPictureSection, } from './UserPageStyles';
+import {
+  UserSection,
+  ListingsTitle,
+  ProductsSection,
+  Image,
+  DisplayPictureSection,
+} from './UserPageStyles';
 
 const UserPage = () => {
   const [user, setUser] = useState(null);
@@ -26,10 +31,8 @@ const UserPage = () => {
   return (
     <div>
       <UserSection>
-        <Imahe src={user.avatar} alt='profilepic'/>
-        <DisplayPictureSection>
-        <Imahe src='/testpicture.jpg' alt='testpicture' />
-        </DisplayPictureSection>
+        <Image src={user.avatar} alt='profilepic' />
+        <DisplayPictureSection></DisplayPictureSection>
         <h1>{user.name}</h1>
         <p>Email: {user.email}</p>
         <p>Location: Auckland</p>

@@ -67,10 +67,9 @@ export const FakeLink = styled.span`
   }
 `;
 
-export const Imahe = styled.img`
+export const Image = styled.img`
   border-style: solid;
   border-width: 2px;
   height: 60%;
   width: 20%;
-
 `;

@@ -23,7 +23,7 @@ export const ProductsSection = styled.section`
   margin-bottom: 2em;
 `;
 
-export const Imahe = styled.img`
+export const Image = styled.img`
   border-style: solid;
   border-width: 1px;
   height: 60%;

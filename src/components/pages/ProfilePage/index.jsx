@@ -1,5 +1,8 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { BsFillGearFill } from 'react-icons/bs';
+import { fetchApi } from '../../../util/fetchApi';
+import { useAuth } from '../../../contexts/AuthContext';
 import { AiOutlineShoppingCart, AiOutlineFile } from 'react-icons/ai';
 import {
   AccHeader,
@@ -9,18 +12,24 @@ import {
   ProfileBox,
   Section1,
   FakeLink,
-  Imahe,
+  Image,
 } from '../ProfilePage/ProfilePageStyles';
-import { useAuth } from '../../../contexts/AuthContext';
 
 const ProfilePage = () => {
-  const { user, resetPassword } = useAuth();
+  const [user, setUser] = useState(null);
+  const auth = useAuth();
 
-  
+  useEffect(() => {
+    fetchApi(`/users/${auth.user.uid}`)
+      .then(res => res.json())
+      .then(data => setUser(data.user));
+  }, [auth]);
 
   const resetClick = () => {
-    resetPassword(user.email);
+    auth.resetPassword(user.email);
   };
+
+  if (!user) return null;
 
   return (
     <>
@@ -31,10 +40,9 @@ const ProfilePage = () => {
               <AccHeader>My Account</AccHeader>
               <AccID>Account ID: xxxxx</AccID>
               <Section1>
-              <Imahe src={user.avatar} alt='profilepic'/>
-              <Imahe src='/testpicture.jpg' alt='testpicture' />
+                <Image src={user.avatar} alt='profilepic' />
                 <p>
-                  <strong>User Name: </strong> {user.displayName}
+                  <strong>User Name: </strong> {user.name}
                 </p>
                 <p>
                   <strong>Email: </strong> {user.email}
