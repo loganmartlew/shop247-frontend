@@ -14,8 +14,15 @@ import {
   LargeTextInput,
   ErrorMessage,
 } from '../../Form';
+import Button from '../../Button';
+import { useAuth } from '../../../contexts/AuthContext';
+import { useNotification } from '../../../contexts/NotificationContext';
 
 const EditProfilePage = () => {
+    const { user } = useAuth();
+    const { addError, addSuccess } = useNotification();
+
+    const history = useHistory();
 
     const {
         register,
@@ -53,6 +60,13 @@ const EditProfilePage = () => {
                         </TextInput>
                         <ErrorMessage>{ErrorMessage.name?.message}</ErrorMessage>
                     </FormGroup>
+
+                    <Button type='submit' solid>
+                        Submit
+                    </Button>
+                    <Button>
+                        <Link to={`/user/${user.uid}`}>Back</Link>
+                    </Button>
                 </Form>
             </PageWrapper>
         </>
