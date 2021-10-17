@@ -32,7 +32,6 @@ export const DescBox = styled.div`
 `;
 
 export const Section1 = styled.section`
-  display: block;
   text-align: left;
   background-color: transparent;
   padding: 3%;

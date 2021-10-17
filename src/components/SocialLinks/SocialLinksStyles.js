@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 export const Logos = styled.div`
-  float: right;
-  padding-right: 20px;
   color: black;
   font-size: 150%;
 `;
