@@ -15,14 +15,11 @@ import {
   Section2,
   Section3,
   FakeLink,
-  Image,
 } from '../ProfilePage/ProfilePageStyles';
-import { Button } from 'antd';
 import SocialLinks from '../../SocialLinks';
 
 const ProfilePage = () => {
   const [user, setUser] = useState(null);
-  const [Img, setImg] = useState(null);
   const auth = useAuth();
 
   useEffect(() => {
@@ -37,8 +34,6 @@ const ProfilePage = () => {
 
   if (!user) return null;
 
-  let imgsrc = Img;
-
   return (
     <>
       <PageWrapper>
@@ -48,25 +43,18 @@ const ProfilePage = () => {
               <AccHeader>My Account</AccHeader>
               <AccID>Account ID: xxxxx </AccID>
               <Section1>
-                <Image src={imgsrc} alt='profilepic' />
-                <br />
-                <label>
-                  imgurl:
-                  <input
-                    type='text'
-                    placeholder='Enter text'
-                    onChange={event => setImg(event.target.value)}
-                  />
-                  <input type='submit' value='Submit' />
-                </label>
-                <Button> Submit </Button>
                 <p>
                   <strong>User Name: </strong> {user.name}
                 </p>
                 <p>
                   <strong>Email: </strong> {user.email}
                 </p>
-                <SocialLinks user={user} />
+                { user.social && 
+                  <p>
+                    <strong>Socials:</strong>
+                    <SocialLinks user={user} />
+                  </p>
+                }
               </Section1>
               <Section2>
                 <p>
