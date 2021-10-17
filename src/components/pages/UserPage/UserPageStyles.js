@@ -14,6 +14,11 @@ export const UserSection = styled.section`
   border-width: 1px;
 `;
 
+export const Rating = styled.section`
+  display: inline-flex;
+  cursor: pointer;
+`;
+
 export const ListingsTitle = styled.h1`
   text-align: center;
   margin-bottom: 0.7em;

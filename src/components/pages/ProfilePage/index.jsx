@@ -18,6 +18,7 @@ import {
 import { Button } from 'antd';
 import SocialLinks from '../../SocialLinks';
 
+
 const ProfilePage = () => {
   const [user, setUser] = useState(null);
   const [Img, setImg] = useState(null);
@@ -84,9 +85,20 @@ const ProfilePage = () => {
                     </Link>
                   </FakeLink>
                 </p>
+                
               </Section1>
+
+              
+
             </DescBox>
+
+            
+
+
           </div>
+
+          
+
         </ProfileBox>
       </PageWrapper>
     </>

@@ -8,6 +8,7 @@ import CartProvider from './contexts/CartContext';
 import GlobalStyles from './styles/globals';
 import theme from './styles/theme';
 
+
 // Page Components
 import HomePage from './components/pages/HomePage';
 import SignInPage from './components/pages/SignInPage';
@@ -15,12 +16,15 @@ import SignUpPage from './components/pages/SignUpPage';
 import SearchPage from './components/pages/SearchPage';
 import ProductPage from './components/pages/ProductPage';
 import ListPage from './components/pages/ListPage';
+import ChangePage from './components/pages/ChangePage';
 import OrdersPage from './components/pages/OrdersPage';
 import ProfilePage from './components/pages/ProfilePage';
 import UserPage from './components/pages/UserPage';
 import CartPage from './components/pages/CartPage';
 import PaymentSuccessPage from './components/pages/PaymentSuccessPage';
 import PaymentCancelPage from './components/pages/PaymentCancelPage';
+import ContactUsPage from './components/pages/ContactUsPage';
+
 
 // Initialize Firebase
 import './firebase';
@@ -44,6 +48,7 @@ const App = () => {
                     <Route path='/search' component={SearchPage} />
                     <Route path='/product/:productid' component={ProductPage} />
                     <PrivateRoute path='/list' component={ListPage} />
+                    <PrivateRoute path='/change/:productid' component={ChangePage} />
 
                     <PrivateRoute
                       path='/profile/orders'
@@ -51,7 +56,7 @@ const App = () => {
                     />
                     <PrivateRoute path='/profile' component={ProfilePage} />
                     <Route path='/user/:userid' component={UserPage} />
-
+                    
                     <Route path='/cart' component={CartPage} />
                     <Route
                       path='/paymentsuccess'
@@ -61,6 +66,7 @@ const App = () => {
                       path='/paymentcancel'
                       component={PaymentCancelPage}
                     />
+                    <Route component={ContactUsPage} />
                   </Switch>
                 </Layout>
               </Router>

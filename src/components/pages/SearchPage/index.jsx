@@ -5,10 +5,12 @@ import { fetchApi } from '../../../util/fetchApi';
 import Searchbar from '../../Searchbar';
 import { SearchSection } from '../../Searchbar/SearchbarStyles';
 import ProductList from '../../products/ProductList';
+import PageIndicators from './PageIndicators';
 
 const SearchPage = () => {
   const [originalProducts, setOriginalProducts] = useState(null);
   const [products, setProducts] = useState(null);
+  const [pages, setPages] = useState();
 
   const [priceAsc, setPriceAsc] = useState(false);
 
@@ -17,10 +19,14 @@ const SearchPage = () => {
   useEffect(() => {
     const parsedQuery = queryString.parse(location.search);
     const search = parsedQuery.s;
+    const page = parsedQuery.page;
 
-    fetchApi(`/products?search=${search}`)
+    fetchApi(`/products?search=${search}${page ? `&page=${page}` : ''}`)
       .then(res => res.json())
-      .then(data => setOriginalProducts(data.products));
+      .then(data => {
+        setOriginalProducts(data.products);
+        setPages(data.pages);
+      });
   }, [location]);
 
   useEffect(() => {
@@ -52,6 +58,7 @@ const SearchPage = () => {
         />
       </SearchSection>
       <ProductList products={products} />
+      {pages && <PageIndicators pages={pages} />}
     </>
   );
 };

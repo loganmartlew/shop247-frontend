@@ -1,5 +1,5 @@
-import { useState, useRef } from 'react';
-import { useHistory } from 'react-router';
+import { useState, useRef, useEffect } from 'react';
+import { useHistory, Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import Button from '../../Button';
 import {
@@ -11,23 +11,43 @@ import {
   ErrorMessage,
 } from '../../Form';
 import submitNewProduct from '../../../util/submitNewProduct';
+import changeProduct from '../../../util/changeProduct';
+import removeProduct from '../../../util/removeProduct';
 import { useAuth } from '../../../contexts/AuthContext';
 import { useNotification } from '../../../contexts/NotificationContext';
 
-const ProductForm = () => {
+const ProductForm = ({ product }) => {
   const { user } = useAuth();
   const { addError, addSuccess } = useNotification();
 
   const history = useHistory();
 
+  // Convert price from cents to dollars
+  const formatProductPrice = product => {
+    const formattedProduct = {
+      ...product,
+      price: product.price / 100,
+    };
+
+    return formattedProduct;
+  };
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: product != null ? formatProductPrice(product) : null,
+  });
 
   const [images, setImages] = useState([]);
   const imageRef = useRef(null);
+
+  useEffect(() => {
+    if (!product) return;
+
+    setImages(product.images);
+  }, [product]);
 
   const addImage = e => {
     e.preventDefault();
@@ -46,12 +66,40 @@ const ProductForm = () => {
 
     const data = { name, description, price, images, sellerId: user.uid };
 
+    if (!product) {
+      // adds new product to database
+      try {
+        await submitNewProduct(data, user);
+        addSuccess('Product listed!');
+        history.push(`/user/${user.uid}`);
+      } catch (_) {
+        addError('Product is invalid');
+      }
+    } else {
+      // changes existing product in database
+      try {
+        await changeProduct(product._id, data, user);
+        addSuccess('Product updated');
+        history.push(`/user/${user.uid}`);
+      } catch (_) {
+        addError('Change is invalid');
+      }
+    }
+  };
+
+  const deleteProduct = async () => {
     try {
-      await submitNewProduct(data, user);
-      addSuccess('Product listed!');
-      history.push('/');
+      const confirm = window.confirm(
+        'Are you sure you want to delete this listing?'
+      );
+
+      if (!confirm) return;
+
+      await removeProduct(product._id, user);
+      addSuccess('Product deleted');
+      history.push(`/user/${user.uid}`);
     } catch (_) {
-      addError('Product is invalid');
+      addError('Failed to delete listing');
     }
   };
 
@@ -126,6 +174,13 @@ const ProductForm = () => {
       <Button type='submit' solid>
         Submit
       </Button>
+
+      {product && (
+        <Button>
+          <Link to={`/user/${user.uid}`}>Back</Link>
+        </Button>
+      )}
+      {product && <Button onClick={deleteProduct}>Delete</Button>}
     </Form>
   );
 };

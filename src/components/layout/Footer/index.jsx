@@ -29,7 +29,7 @@ const Footer = () => {
         <Link to='/'>
           <Termscon>Terms &amp; Conditions</Termscon>
         </Link>
-        <Link to='/'>
+        <Link to='../pages/ContactUsPage'>
           <Contactus>Contact Us</Contactus>
         </Link>
       </Links>

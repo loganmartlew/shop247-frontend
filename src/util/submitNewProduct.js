@@ -8,15 +8,12 @@ const submitNewProduct = async (product, user) => {
     `/products`,
     {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
       body: JSON.stringify({ product }),
     },
     user
   );
 
-  if (!res.ok) throw new Error('');
+  if (!res.ok) throw new Error();
 };
 
 export default submitNewProduct;
