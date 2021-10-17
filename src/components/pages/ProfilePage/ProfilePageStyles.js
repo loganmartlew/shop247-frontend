@@ -67,23 +67,6 @@ export const FakeLink = styled.span`
   }
 `;
 
-export const Logos = styled.div`
-  padding-right: 20px;
-  color: black;
-  font-size: 150%;
-`;
-
-export const FacebookLogo = styled.li`
-  list-style: none;
-  display: inline-block;
-  padding-right: 15px;
-`;
-
-export const InstagramLogo = styled.li`
-  list-style: none;
-  display: inline-block;
-`;
-
 export const Image = styled.img`
   border-style: solid;
   border-width: 2px;

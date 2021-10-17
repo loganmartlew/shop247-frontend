@@ -3,12 +3,7 @@ import { Link } from 'react-router-dom';
 import { BsFillGearFill } from 'react-icons/bs';
 import { fetchApi } from '../../../util/fetchApi';
 import { useAuth } from '../../../contexts/AuthContext';
-import {
-  AiOutlineShoppingCart,
-  AiOutlineFile,
-  AiOutlineFacebook,
-  AiOutlineInstagram,
-} from 'react-icons/ai';
+import { AiOutlineShoppingCart, AiOutlineFile } from 'react-icons/ai';
 
 import {
   AccHeader,
@@ -18,12 +13,10 @@ import {
   ProfileBox,
   Section1,
   FakeLink,
-  Logos,
-  FacebookLogo,
-  InstagramLogo,
   Image,
 } from '../ProfilePage/ProfilePageStyles';
 import { Button } from 'antd';
+import SocialLinks from '../../SocialLinks';
 
 const ProfilePage = () => {
   const [user, setUser] = useState(null);
@@ -71,22 +64,7 @@ const ProfilePage = () => {
                 <p>
                   <strong>Email: </strong> {user.email}
                 </p>
-                <Logos>
-                  {user.social.facebook && (
-                    <Link to='/'>
-                      <FacebookLogo>
-                        <AiOutlineFacebook />
-                      </FacebookLogo>
-                    </Link>
-                  )}
-                  {user.social.instagram && (
-                    <Link to='/'>
-                      <InstagramLogo>
-                        <AiOutlineInstagram />
-                      </InstagramLogo>
-                    </Link>
-                  )}
-                </Logos>
+                <SocialLinks />
                 <p>
                   <FakeLink onClick={resetClick}>
                     <BsFillGearFill /> Change Password

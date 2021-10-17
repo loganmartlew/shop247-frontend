@@ -21,21 +21,3 @@ export const Description = styled.h4`
 export const Price = styled.h3`
   color: ${({ theme }) => theme.colors.black};
 `;
-
-export const Logos = styled.div`
-  float: right;
-  padding-right: 20px;
-  color: black;
-  font-size: 150%;
-`;
-
-export const FacebookLogo = styled.li`
-  list-style: none;
-  display: inline-block;
-  padding-right: 10px;
-`;
-
-export const InstagramLogo = styled.li`
-  list-style: none;
-  display: inline-block;
-`;

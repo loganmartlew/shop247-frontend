@@ -1,19 +1,15 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import { Link } from 'react-router-dom';
 import { fetchApi } from '../../../util/fetchApi';
 import ProductList from '../../products/ProductList';
 import {
   UserSection,
   ListingsTitle,
   ProductsSection,
-  Logos,
-  FacebookLogo,
-  InstagramLogo,
   Image,
   DisplayPictureSection,
 } from './UserPageStyles';
-import { AiOutlineFacebook, AiOutlineInstagram } from 'react-icons/ai';
+import SocialLinks from '../../SocialLinks';
 
 const UserPage = () => {
   const [user, setUser] = useState(null);
@@ -42,22 +38,7 @@ const UserPage = () => {
         <p>Email: {user.email}</p>
         <p>Location: Auckland</p>
         <p>{user.name}'s additional links:</p>
-        <Logos>
-          {user.social.facebook && (
-            <Link to='/'>
-              <FacebookLogo>
-                <AiOutlineFacebook />
-              </FacebookLogo>
-            </Link>
-          )}
-          {user.social.instagram && (
-            <Link to='/'>
-              <InstagramLogo>
-                <AiOutlineInstagram />
-              </InstagramLogo>
-            </Link>
-          )}
-        </Logos>
+        <SocialLinks />
       </UserSection>
       <ListingsTitle>{user.name}'s Listings</ListingsTitle>
       <ProductsSection>

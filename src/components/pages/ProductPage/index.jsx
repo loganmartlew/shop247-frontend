@@ -8,12 +8,9 @@ import {
   Description,
   Price,
   ProductContainer,
-  Logos,
-  FacebookLogo,
-  InstagramLogo,
 } from './ProductPageStyles';
 import Button from '../../Button';
-import { AiOutlineFacebook, AiOutlineInstagram } from 'react-icons/ai';
+import SocialLinks from '../../SocialLinks';
 
 const fetcher = (...args) => fetchApi(...args).then(res => res.json());
 
@@ -39,22 +36,7 @@ const ProductPage = () => {
       <Link to={`/user/${user.uid}`}>
         <Button>View Profile</Button>
       </Link>
-      <Logos>
-        {user.social.facebook && (
-          <Link to='/'>
-            <FacebookLogo>
-              <AiOutlineFacebook />
-            </FacebookLogo>
-          </Link>
-        )}
-        {user.social.instagram && (
-          <Link to='/'>
-            <InstagramLogo>
-              <AiOutlineInstagram />
-            </InstagramLogo>
-          </Link>
-        )}
-      </Logos>
+      <SocialLinks />
       <Price>{formatDisplayPrice(product.price)}</Price>
       {product.images.map(({ url }, i) => (
         <img src={url} key={i} alt='' />
