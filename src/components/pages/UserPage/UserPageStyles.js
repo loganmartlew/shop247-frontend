@@ -30,9 +30,9 @@ export const ProductsSection = styled.section`
 
 export const Image = styled.img`
   border-style: solid;
-  border-width: 1px;
-  height: 60%;
-  width: 50%;
+  border-width: 2px;
+  width: 130px;
+  aspect-ratio: 1/1;
 `;
 
 export const DisplayPictureSection = styled.div`

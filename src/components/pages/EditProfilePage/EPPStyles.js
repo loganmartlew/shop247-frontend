@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const PageWrapper = styled.div`
   display: grid;
@@ -24,6 +24,6 @@ export const Form = styled.form`
 export const Image = styled.img`
   border-style: solid;
   border-width: 2px;
-  height: 60%;
-  width: 20%;
+  width: 130px;
+  aspect-ratio: 1/1;
 `;
