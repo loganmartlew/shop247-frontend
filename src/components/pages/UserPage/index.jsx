@@ -26,7 +26,7 @@ const UserPage = () => {
   return (
     <div>
       <UserSection>
-        {/* <Imahe src={user.profile_pic} alt='profilepic'/> */}
+        <Imahe src={user.avatar} alt='profilepic'/>
         <DisplayPictureSection>
         <Imahe src='/testpicture.jpg' alt='testpicture' />
         </DisplayPictureSection>

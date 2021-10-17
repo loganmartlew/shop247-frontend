@@ -31,7 +31,7 @@ const ProfilePage = () => {
               <AccHeader>My Account</AccHeader>
               <AccID>Account ID: xxxxx</AccID>
               <Section1>
-              {/* <Imahe src={user.profile_pic} alt='profilepic'/> */}
+              <Imahe src={user.avatar} alt='profilepic'/>
               <Imahe src='/testpicture.jpg' alt='testpicture' />
                 <p>
                   <strong>User Name: </strong> {user.displayName}
