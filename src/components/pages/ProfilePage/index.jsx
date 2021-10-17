@@ -45,6 +45,7 @@ const ProfilePage = () => {
               <AccID>Account ID: xxxxx </AccID>
               <Section1>
                 <Image src={user.avatar} alt='profilepic' />
+                <br />
                 <p>
                   <strong>User Name: </strong> {user.name}
                 </p>
