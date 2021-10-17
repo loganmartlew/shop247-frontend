@@ -1,9 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-
+import { fetchApi } from '../../../util/fetchApi';
 import { PageWrapper, Image } from './EPPStyles';
-
 import {
   Form,
   FormGroup,
@@ -17,8 +16,10 @@ import { useAuth } from '../../../contexts/AuthContext';
 import { useNotification } from '../../../contexts/NotificationContext';
 
 const EditProfilePage = () => {
-  const [Img, setImg] = useState(null);
-  const { user } = useAuth();
+  const [img, setImg] = useState(null);
+  const [user, setUser] = useState(null);
+
+  const auth = useAuth();
   const { addError, addSuccess } = useNotification();
 
   const history = useHistory();
@@ -29,24 +30,30 @@ const EditProfilePage = () => {
     formState: { errors },
   } = useForm({});
 
-  const UpdateAvatarAAng = () => {
-    
-  }
+  useEffect(() => {
+    fetchApi(`/users/${auth.user.uid}`)
+      .then(res => res.json())
+      .then(data => setUser(data.user));
+  }, [auth]);
+
+  const UpdateAvatarAAng = () => {};
+
+  if (!user) return null;
 
   return (
     <>
       <PageWrapper>
-        <Form onSubmit={handleSubmit(UpdateAvatarAAng, )}>
+        <Form onSubmit={handleSubmit(UpdateAvatarAAng)}>
           <h3> Change Account Details </h3>
           <FormGroup>
-          <Image src={Img} alt='profilepic' />
-          <br />
-          <input
-                    type='text'
-                    placeholder='Enter text'
-                    onChange={event => setImg(event.target.value)}
-                  />
-                  <input type='submit' value='Submit' />
+            <Image src={img} alt='profilepic' />
+            <br />
+            <input
+              type='text'
+              placeholder='Enter text'
+              onChange={event => setImg(event.target.value)}
+            />
+            <input type='submit' value='Submit' />
           </FormGroup>
           <FormGroup>
             <FieldLabel htmlFor='name'>User Name:</FieldLabel>
@@ -71,7 +78,7 @@ const EditProfilePage = () => {
             Submit
           </Button>
           <Button>
-            <Link to={`/user/${user.uid}`}>Back</Link>
+            <Link to={`/user/${auth.user.uid}`}>Back</Link>
           </Button>
         </Form>
       </PageWrapper>
