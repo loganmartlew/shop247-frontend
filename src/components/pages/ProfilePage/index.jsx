@@ -15,7 +15,7 @@ import {
   Section2,
   Section3,
   FakeLink,
-  Image
+  Image,
 } from '../ProfilePage/ProfilePageStyles';
 import SocialLinks from '../../SocialLinks';
 
@@ -53,10 +53,10 @@ const ProfilePage = () => {
                   <strong>Email: </strong> {user.email}
                 </p>
                 {user.social && (
-                  <p>
+                  <div>
                     <strong>Socials:</strong>
                     <SocialLinks user={user} />
-                  </p>
+                  </div>
                 )}
               </Section1>
               <Section2>
