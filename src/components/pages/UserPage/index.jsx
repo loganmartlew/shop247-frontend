@@ -1,15 +1,18 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useParams } from 'react-router';
 import { fetchApi } from '../../../util/fetchApi';
-import UserProducts from '../../products/UserProducts';
-import TrustRating from '../../TrustRating';
-import RateModal from './RateModal';
 import {
   UserSection,
   Rating,
   ListingsTitle,
   ProductsSection,
+  Image,
+  DisplayPictureSection,
 } from './UserPageStyles';
+import SocialLinks from '../../SocialLinks';
+import UserProducts from '../../products/UserProducts';
+import TrustRating from '../../TrustRating';
+import RateModal from './RateModal';
 
 const UserPage = () => {
   const [user, setUser] = useState(null);
@@ -38,15 +41,30 @@ const UserPage = () => {
   }, [userid, getUser]);
 
   if (!user || !products) return null;
-
   return (
     <div>
       <UserSection>
+        <DisplayPictureSection>
+          <Image src={user.avatar} alt='profilepic' />
+        </DisplayPictureSection>
         <h1>{user.name}</h1>
-        <p>Email: {user.email}</p>
-        <p>Location: Auckland</p>
+        <p>
+          <strong>Email: </strong>
+          {user.email}
+        </p>
+        {user.location && (
+          <p>
+            <strong>Location: </strong> {user.location}
+          </p>
+        )}
+        {user.socials && (
+          <p>
+            {user.name}'s additional links:
+          </p>
+        )}
+        <SocialLinks user={user} />
         <Rating onClick={() => setRateOpen(true)}>
-          Trust Rating:{' '}
+          <strong>Trust Rating:</strong>{' '}
           {user.rating?.rating ? (
             <TrustRating display rating={rating} />
           ) : (

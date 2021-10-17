@@ -19,6 +19,7 @@ import ListPage from './components/pages/ListPage';
 import ChangePage from './components/pages/ChangePage';
 import OrdersPage from './components/pages/OrdersPage';
 import ProfilePage from './components/pages/ProfilePage';
+import EditProfilePage from './components/pages/EditProfilePage';
 import UserPage from './components/pages/UserPage';
 import CartPage from './components/pages/CartPage';
 import PaymentSuccessPage from './components/pages/PaymentSuccessPage';
@@ -55,6 +56,7 @@ const App = () => {
                       component={OrdersPage}
                     />
                     <PrivateRoute path='/profile' component={ProfilePage} />
+                    <PrivateRoute path='/editprofile' component={EditProfilePage} />
                     <Route path='/user/:userid' component={UserPage} />
                     
                     <Route path='/cart' component={CartPage} />

@@ -5,10 +5,13 @@ export const UserSection = styled.section`
   display: flex;
   flex-direction: column;
   gap: 0.5em;
-  margin: 2rem auto;
-  padding: 1em;
-  max-width: max-content;
+  margin: 0.5rem auto;
+  padding: 0.5em;
+  max-width: fit-content;
   background-color: ${({ theme }) => lighten(0.1, theme.colors.lilac)};
+  text-align: center;
+  border-style: solid;
+  border-width: 1px;
 `;
 
 export const Rating = styled.section`
@@ -23,4 +26,15 @@ export const ListingsTitle = styled.h1`
 
 export const ProductsSection = styled.section`
   margin-bottom: 2em;
+`;
+
+export const Image = styled.img`
+  border-style: solid;
+  border-width: 2px;
+  width: 130px;
+  aspect-ratio: 1/1;
+`;
+
+export const DisplayPictureSection = styled.div`
+  text-align: center;
 `;

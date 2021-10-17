@@ -10,6 +10,7 @@ import {
   ProductContainer,
 } from './ProductPageStyles';
 import Button from '../../Button';
+import SocialLinks from '../../SocialLinks';
 
 const fetcher = (...args) => fetchApi(...args).then(res => res.json());
 
@@ -35,6 +36,7 @@ const ProductPage = () => {
       <Link to={`/user/${user.uid}`}>
         <Button>View Profile</Button>
       </Link>
+      <SocialLinks user={user} />
       <Price>{formatDisplayPrice(product.price)}</Price>
       {product.images.map(({ url }, i) => (
         <img src={url} key={i} alt='' />

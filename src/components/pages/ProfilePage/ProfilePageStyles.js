@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const PageWrapper = styled.div`
   display: grid;
   place-content: center;
-  height: 88vh;
+  height: 79.755vh;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -12,7 +12,7 @@ export const PageWrapper = styled.div`
 
 export const ProfileBox = styled.div`
   display: grid;
-  height: 88vh;
+  height: max-content;
   width: 100vh;
   background-color: transparent;
   padding-top: 5%;
@@ -32,12 +32,30 @@ export const DescBox = styled.div`
 `;
 
 export const Section1 = styled.section`
-  display: block;
   text-align: left;
   background-color: transparent;
-  padding: 3%;
+  padding-left: 3%;
+  padding-top: 3%;
   border: 0px;
   border-top: 1px;
+  border-style: solid;
+  border-color: black;
+`;
+
+export const Section2 = styled.section`
+  text-align: left;
+  background-color: transparent;
+  padding-left: 3%;
+  padding-top: 2%;
+`;
+
+export const Section3 = styled.section`
+  text-align: left;
+  background-color: transparent;
+  padding-left: 3%;
+  padding-top: 2%;
+  padding-bottom: 3%;
+  border: 0px;
   border-bottom: 1px;
   border-style: solid;
   border-color: black;
@@ -65,4 +83,11 @@ export const FakeLink = styled.span`
   &:hover {
     color: ${({ theme }) => theme.colors.accent};
   }
+`;
+
+export const Image = styled.img`
+  border-style: solid;
+  border-width: 2px;
+  width: 130px;
+  aspect-ratio: 1/1;
 `;
