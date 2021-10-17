@@ -26,9 +26,8 @@ const UserPage = () => {
   return (
     <div>
       <UserSection>
-        <Imahe src={user.avatar} alt='profilepic'/>
         <DisplayPictureSection>
-        <Imahe src='/testpicture.jpg' alt='testpicture' />
+        <Imahe src={user.avatar} alt='profilepic'/>
         </DisplayPictureSection>
         <h1>{user.name}</h1>
         <p>Email: {user.email}</p>
