@@ -64,7 +64,7 @@ const ProfilePage = () => {
                 <p>
                   <strong>Email: </strong> {user.email}
                 </p>
-                <SocialLinks />
+                <SocialLinks user={user} />
                 <p>
                   <FakeLink onClick={resetClick}>
                     <BsFillGearFill /> Change Password

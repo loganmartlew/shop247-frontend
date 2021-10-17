@@ -38,7 +38,7 @@ const UserPage = () => {
         <p>Email: {user.email}</p>
         <p>Location: Auckland</p>
         <p>{user.name}'s additional links:</p>
-        <SocialLinks />
+        <SocialLinks user={user} />
       </UserSection>
       <ListingsTitle>{user.name}'s Listings</ListingsTitle>
       <ProductsSection>

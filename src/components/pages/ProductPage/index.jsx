@@ -36,7 +36,7 @@ const ProductPage = () => {
       <Link to={`/user/${user.uid}`}>
         <Button>View Profile</Button>
       </Link>
-      <SocialLinks />
+      <SocialLinks user={user} />
       <Price>{formatDisplayPrice(product.price)}</Price>
       {product.images.map(({ url }, i) => (
         <img src={url} key={i} alt='' />
