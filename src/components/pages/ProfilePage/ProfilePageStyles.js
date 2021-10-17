@@ -32,7 +32,6 @@ export const DescBox = styled.div`
 `;
 
 export const Section1 = styled.section`
-  display: block;
   text-align: left;
   background-color: transparent;
   padding: 3%;
@@ -65,4 +64,11 @@ export const FakeLink = styled.span`
   &:hover {
     color: ${({ theme }) => theme.colors.accent};
   }
+`;
+
+export const Image = styled.img`
+  border-style: solid;
+  border-width: 2px;
+  height: 60%;
+  width: 20%;
 `;
