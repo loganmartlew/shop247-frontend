@@ -42,8 +42,8 @@ If you discover a bug or issue, or if you have a feature request, please open an
 
 ## Authors
 
-Logan Martlew - [loganmartlew](https://github.com/loganmartlew)
-Kyle Oasan - [ChilaquilesEksDee](https://github.com/ChilaquilesEksDee)
-Royce Cristobal - [gitmeal](https://github.com/gitmeal)
-Ren Roquid - [cieloren](https://github.com/cieloren)
-Liam O'Connor - [loco36](https://github.com/loco36)
+Logan Martlew - [loganmartlew](https://github.com/loganmartlew)\
+Kyle Oasan - [ChilaquilesEksDee](https://github.com/ChilaquilesEksDee)\
+Royce Cristobal - [gitmeal](https://github.com/gitmeal)\
+Ren Roquid - [cieloren](https://github.com/cieloren)\
+Liam O'Connor - [loco36](https://github.com/loco36)\
