@@ -10,14 +10,14 @@ const changeIsValid = product => {
   if (!product) return false;
 
   /* Validate name */
-  // if (!product.name) return false;
+  if (!product.name) return false;
   if (typeof product.name !== 'string') return false;
-  // if (product.name.length < 1) return false;
+  if (product.name.length < 1) return false;
 
   /* Validate description */
-  // if (!product.description) return false;
+  if (!product.description) return false;
   if (typeof product.description !== 'string') return false;
-  // if (product.description.length < 1) return false;
+  if (product.description.length < 1) return false;
 
   /* Validate price */
   if (!product.price) return false;
