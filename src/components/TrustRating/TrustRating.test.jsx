@@ -13,22 +13,23 @@ describe('test TrustRating component', () => {
     cleanup();
   });
 
-  beforeEach(() => {
-    render(
-      <TestWrapper>
-        <TrustRating />
-      </TestWrapper>
-    );
-  });
-
   afterEach(cleanup);
 
-  test('hovering over a star will change its hover state', () => {
+  test('clicking a star will change the rating', () => {
+    let rating = 0;
+    const setRating = number => {
+      rating = number;
+    };
+
+    render(
+      <TestWrapper>
+        <TrustRating rating={rating} setRating={setRating} />
+      </TestWrapper>
+    );
+
     const star = screen.getByTestId('star-1');
-    userEvent.hover(star);
+    userEvent.click(star);
 
-    expect(star).toHaveStyle('color: rgb(255, 255, 0)');
+    expect(rating).toBe(1);
   });
-
-  test('clicking a star will change the rating', () => {});
 });

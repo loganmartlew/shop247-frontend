@@ -18,7 +18,7 @@ const TrustRating = ({ display, rating, setRating }) => {
         onClick={() => handleClick(1)}
         hoverSelected={hoverSelected >= 1}
         onMouseEnter={() => setHoverSelected(1)}
-        data-testId='star-1'
+        data-testid='star-1'
       >
         <AiFillStar />
       </Star>
